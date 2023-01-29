@@ -8,8 +8,9 @@ export default function Test() {
       <div className={styles.main}>
         <h1 className={styles.title}>Events</h1>
         <p className={styles.description}>
-          Event descriptions Event descriptionsEvent descriptionsEvent descriptionsEvent descriptionsEvent descriptions
-          Event descriptionsEvent descriptionsEvent descriptions
+          Event descriptions Event descriptionsEvent descriptionsEvent
+          descriptionsEvent descriptionsEvent descriptions Event
+          descriptionsEvent descriptionsEvent descriptions
         </p>
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
