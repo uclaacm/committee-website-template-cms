@@ -43,8 +43,8 @@
 .boardgrid {
   display: grid;
   align-items: center;
-  grid-template-areas: 
-    "card card";
+  grid-template-areas: "card card";
+
   // flex-wrap: wrap;
   // max-width: 50%;
 }
@@ -52,8 +52,8 @@
 .gmgrid {
   display: grid;
   align-items: center;
-  grid-template-areas: 
-    "card card card";
+  grid-template-areas: "card card card";
+
   // flex-wrap: wrap;
   // max-width: 800px;
 }
@@ -66,6 +66,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+
   // grid-area: card;
 }
 

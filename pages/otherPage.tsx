@@ -11,8 +11,8 @@ export default function OtherPage() {
         <div>
           <h2 className={styles.subtitle}>Board</h2>
           <p className={styles.description}>
-            Our directors, school leads, and curriculum leads.
-            Feel free to reach out to any of our board for more information about what we do!
+            Our directors, school leads, and curriculum leads. Feel free to
+            reach out to any of our board for more information about what we do!
           </p>
           <div className={styles.boardgrid}>
             {/* 2 per row */}
@@ -26,9 +26,10 @@ export default function OtherPage() {
         <div>
           <h2 className={styles.subtitle}>General Members</h2>
           <p className={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
           </p>
           <div className={styles.gmgrid}>
             {/* 3 per row */}
