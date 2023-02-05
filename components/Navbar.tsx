@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="/otherPage">Other Page</Link>
         </div>
         <div className="navbar-link">
-          <Link href="/testPage">Test Page</Link>
+          <Link href="/eventsPage">Events Page</Link>
         </div>
       </div>
     </nav>
