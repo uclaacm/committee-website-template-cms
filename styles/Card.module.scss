@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 150px;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px 4px #f5f0f0;
+}
+
+.image {
+  flex: 1;
+  margin: 30px;
+  margin-top: 40px;
+  clip-path: circle(60%);
+}
+
+.text {
+  flex: 4;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.name {
+  font-size: 18px;
+}
+
+.pronouns {
+  font-size: 12px;
+}
+
+.position {
+  font-size: 16px;
+  color: #39ff14;
+}
+
+.smalltext {
+  font-size: 13px;
+}

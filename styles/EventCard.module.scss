@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  width: 1200px;
+  height: 170px;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 0 10px 4px #f5f0f0;
+}
+
+.text {
+  font-size: 13px;
+  margin: 30px;
+}
+
+.header {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.body {
+  color: #39ff14;
+  font-family: "Courier New", Courier, monospace;
+}
