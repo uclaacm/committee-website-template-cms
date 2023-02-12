@@ -1,0 +1,46 @@
+@import "global_variables";
+
+.main {
+  min-height: 100vh;
+  padding: 2rem 4rem;
+  flex: 1;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 96px;
+
+  /* Grey */
+
+  color: #313235;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+
+  /* Grey */
+
+  color: #313235;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  color: #5eda12;
+}
+
+.card {
+  border: solid 1px black;
+  border-radius: 5px;
+  min-height: 200px;
+  text-align: center;
+  margin-top: 20px;
+}
