@@ -2,13 +2,12 @@ import type { NextPage } from 'next';
 import MainLayout from '../components/MainLayout';
 import styles from '../styles/Home.module.scss';
 
-
 const Home: NextPage = () => {
   return (
     <MainLayout>
       <div className={styles.main}>
         <h1 className={styles.title}>
-        Starter ACM Project Using <a href="https://nextjs.org">Next.js!</a>
+          Starter ACM Project Using <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
