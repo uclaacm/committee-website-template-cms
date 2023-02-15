@@ -16,11 +16,9 @@ function EventCard({ header, body, time }: CardInterface) {
           <div className={styles.body}>{body}</div>
           <p className={styles.time}>
             <div>
-            <Image src="/icons8-calendar-24.png" width={20} height={20} />
+              <Image src="/icons8-calendar-24.png" width={20} height={20} />
             </div>
-            <div>
-            &nbsp;{time}
-            </div>
+            <div>&nbsp;{time}</div>
           </p>
         </div>
       </div>

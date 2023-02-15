@@ -20,22 +20,22 @@ export default function OtherPage() {
             {/* 2 per row */}
             <div className={styles.card}>
               <BoardCard
-              imageURL = '/profile.png'
-              name = 'Name'
-              pronouns = 'pronouns'
-              position = 'position'
-              github = 'github'
-              email = 'email'
+                imageURL="/profile.png"
+                name="Name"
+                pronouns="pronouns"
+                position="position"
+                github="github"
+                email="email"
               />
             </div>
             <div className={styles.card}>
-            <BoardCard
-              imageURL = '/profile.png'
-              name = 'Name'
-              pronouns = 'pronouns'
-              position = 'position'
-              github = 'github'
-              email = 'email'
+              <BoardCard
+                imageURL="/profile.png"
+                name="Name"
+                pronouns="pronouns"
+                position="position"
+                github="github"
+                email="email"
               />
             </div>
             <div className={styles.card}>temp</div>
@@ -55,16 +55,16 @@ export default function OtherPage() {
             {/* 3 per row */}
             <div className={styles.card}>
               <MemCard
-              imageURL = '/profile.png'
-              name = 'Name'
-              position = 'position'
+                imageURL="/profile.png"
+                name="Name"
+                position="position"
               />
             </div>
             <div className={styles.card}>
-            <MemCard
-              imageURL = '/profile.png'
-              name = 'Name'
-              position = 'position'
+              <MemCard
+                imageURL="/profile.png"
+                name="Name"
+                position="position"
               />
             </div>
             <div className={styles.card}>temp</div>

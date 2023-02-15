@@ -16,11 +16,8 @@ export default function Test() {
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
           <div className={styles.card}>
-            <EventCard
-            header = 'Header'
-            body = 'body'
-            time = 'time'
-            /></div>
+            <EventCard header="Header" body="body" time="time" />
+          </div>
           <div className={styles.card}>Placeholder card</div>
           <div className={styles.card}>Placeholder card</div>
         </div>
