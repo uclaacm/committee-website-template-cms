@@ -1,5 +1,7 @@
 import React from 'react';
+import BoardCard from '../components/BoardCard';
 import MainLayout from '../components/MainLayout';
+import MemCard from '../components/MemCard';
 import styles from '../styles/Teampage.module.scss';
 
 export default function OtherPage() {
@@ -16,8 +18,26 @@ export default function OtherPage() {
           </p>
           <div className={styles.boardgrid}>
             {/* 2 per row */}
-            <div className={styles.card}>temp</div>
-            <div className={styles.card}>temp</div>
+            <div className={styles.card}>
+              <BoardCard
+              imageURL = '/profile.png'
+              name = 'Name'
+              pronouns = 'pronouns'
+              position = 'position'
+              github = 'github'
+              email = 'email'
+              />
+            </div>
+            <div className={styles.card}>
+            <BoardCard
+              imageURL = '/profile.png'
+              name = 'Name'
+              pronouns = 'pronouns'
+              position = 'position'
+              github = 'github'
+              email = 'email'
+              />
+            </div>
             <div className={styles.card}>temp</div>
             <div className={styles.card}>temp</div>
           </div>
@@ -33,8 +53,20 @@ export default function OtherPage() {
           </p>
           <div className={styles.gmgrid}>
             {/* 3 per row */}
-            <div className={styles.card}>temp</div>
-            <div className={styles.card}>temp</div>
+            <div className={styles.card}>
+              <MemCard
+              imageURL = '/profile.png'
+              name = 'Name'
+              position = 'position'
+              />
+            </div>
+            <div className={styles.card}>
+            <MemCard
+              imageURL = '/profile.png'
+              name = 'Name'
+              position = 'position'
+              />
+            </div>
             <div className={styles.card}>temp</div>
           </div>
         </div>

@@ -1,23 +1,32 @@
 .container {
-  display: flex;
-  width: 1200px;
-  height: 170px;
+  display: inline-block;
+  position: relative;
+  margin: 2rem, 4rem;
+  width: 100%;
+  min-height: 200px;
   border-radius: 15px;
-  margin: 20px;
   box-shadow: 0 0 10px 4px #f5f0f0;
 }
 
 .text {
+  text-align:left;
   font-size: 13px;
   margin: 30px;
+  overflow: hidden;
 }
 
 .header {
   font-size: 15px;
   font-weight: bold;
+  line-height: 2em;
 }
 
 .body {
+  overflow-wrap: break-word;
+}
+
+.time {
   color: #39ff14;
   font-family: "Courier New", Courier, monospace;
+  display: flex;
 }

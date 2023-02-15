@@ -15,16 +15,15 @@ function MemCard({ imageURL, name, position }: CardInterface) {
         <Image src={imageURL} alt="PFP" width={35} height={35} />
       </div>
       <div className={styles.text}>
-        {name} |
-        <span>
-          {' '}
+        <div className={styles.topline}>
+          {name} |&nbsp;
           <Image
             src="/github-mark.png"
             alt="Github icon"
             width={20}
             height={20}
           />
-        </span>
+        </div>
         <div style={{ fontSize: '12px', color: '#39ff14' }}>{position}</div>
       </div>
     </div>

@@ -33,13 +33,13 @@ function BoardCard({
           <span className={styles.position}>{position}</span>
         </div>
         <div className={styles.smalltext}>
-          <Image
+            <Image
             src="/github-mark.png"
             alt="Github Icon"
-            width={20}
-            height={20}
+            width={21}
+            height={21}
           />
-          <a href={github} style={{ padding: '8px' }}>
+          <a href={github} style={{padding: '8px', color: 'inherit'}}>
             {github}
           </a>
         </div>
@@ -47,10 +47,10 @@ function BoardCard({
           <Image
             src="/icons8-mail-24.png"
             alt="Mail Icon"
-            width={20}
-            height={20}
+            width={21}
+            height={21}
           />
-          <span style={{ padding: '8px' }}>{email}</span>
+          <span style={{padding: '8px'}}>{email}</span>
         </div>
       </div>
     </div>

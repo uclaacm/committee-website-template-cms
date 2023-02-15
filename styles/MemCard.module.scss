@@ -1,9 +1,8 @@
 .container {
   display: flex;
-  width: 275px;
+  width: 285px;
   height: 80px;
   border-radius: 15px;
-  margin: 20px;
   padding: 10px;
   box-shadow: 0 0 10px 4px #f5f0f0;
 }
@@ -19,4 +18,9 @@
 .text {
   flex: 4;
   margin-top: 5px;
+}
+
+.topline {
+  display: flex;
+  align-items: center;
 }
