@@ -38,8 +38,26 @@ export default function OtherPage() {
                 email="email"
               />
             </div>
-            <div className={styles.card}>temp</div>
-            <div className={styles.card}>temp</div>
+            <div className={styles.card}>
+              <BoardCard
+                imageURL="/profile.png"
+                name="Name"
+                pronouns="pronouns"
+                position="position"
+                github="github"
+                email="email"
+              />
+            </div>
+            <div className={styles.card}>
+              <BoardCard
+                imageURL="/profile.png"
+                name="Name"
+                pronouns="pronouns"
+                position="position"
+                github="github"
+                email="email"
+              />
+            </div>
           </div>
         </div>
 
@@ -67,7 +85,27 @@ export default function OtherPage() {
                 position="position"
               />
             </div>
-            <div className={styles.card}>temp</div>
+            <div className={styles.card}>
+              <MemCard
+                imageURL="/profile.png"
+                name="Name"
+                position="position"
+              />
+            </div>
+            <div className={styles.card}>
+              <MemCard
+                imageURL="/profile.png"
+                name="Name"
+                position="position"
+              />
+            </div>
+            <div className={styles.card}>
+              <MemCard
+                imageURL="/profile.png"
+                name="Name"
+                position="position"
+              />
+            </div>
           </div>
         </div>
       </div>

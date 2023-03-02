@@ -21,7 +21,7 @@ function BoardCard({
 }: CardInterface) {
   return (
     <div className={styles.container}>
-      <div className={styles.image}>
+      <div className={styles.profilepic}>
         <Image src={imageURL} alt="PFP" width={70} height={70} />
       </div>
       <div className={styles.text}>
