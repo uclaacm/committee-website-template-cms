@@ -37,22 +37,14 @@ export default function Footer() {
         <section className={styles.footerlogo}>
           <Link href="https://discord.com/invite/eWmzKsY">
             <a>
-              <Image
-                src={discord}
-                width={35}
-                height={30}
-                alt="Discord Icon" />
+              <Image src={discord} width={35} height={30} alt="Discord Icon" />
             </a>
           </Link>
         </section>
         <section className={styles.footerlogo}>
           <Link href="mailto: acm@ucla.edu">
             <a>
-              <Image
-                src={email}
-                width={35}
-                height={30}
-                alt="Email Icon" />
+              <Image src={email} width={35} height={30} alt="Email Icon" />
             </a>
           </Link>
         </section>
