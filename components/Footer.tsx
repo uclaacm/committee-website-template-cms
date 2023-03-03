@@ -19,8 +19,7 @@ export default function Footer() {
           </Link>
         </section>
         <section className={styles.footerlogo}>
-          <Link href="https://www.instagram.com/acm.ucla">
-            <a>
+            <a href="https://www.instagram.com/acm.ucla" target="_blank" rel="noreferrer">
               <Image
                 src={instagram}
                 width={30}
@@ -28,21 +27,16 @@ export default function Footer() {
                 alt="Instagram Icon"
               />
             </a>
-          </Link>
         </section>
         <section className={styles.footerlogo}>
-          <Link href="https://discord.com/invite/eWmzKsY">
-            <a>
+            <a href="https://discord.com/invite/eWmzKsY" target="_blank" rel="noreferrer">
               <Image src={discord} width={35} height={30} alt="Discord Icon" />
             </a>
-          </Link>
         </section>
         <section className={styles.footerlogo}>
-          <Link href="mailto: acm@ucla.edu">
-            <a>
+            <a href="mailto: acm@ucla.edu" target="_blank" rel="noreferrer" className={styles.mail-anchor}>
               <Image src={email} width={35} height={30} alt="Email Icon" />
             </a>
-          </Link>
         </section>
       </section>
       <section className={styles.copyright}>
