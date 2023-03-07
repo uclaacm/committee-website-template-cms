@@ -19,30 +19,37 @@ export default function Footer() {
           </Link>
         </section>
         <section className={styles.footerlogo}>
-          <Link href="https://www.instagram.com/acm.ucla">
-            <a>
-              <Image
-                src={instagram}
-                width={30}
-                height={30}
-                alt="Instagram Icon"
-              />
-            </a>
-          </Link>
+          <a
+            href="https://www.instagram.com/acm.ucla"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
+              src={instagram}
+              width={30}
+              height={30}
+              alt="Instagram Icon"
+            />
+          </a>
         </section>
         <section className={styles.footerlogo}>
-          <Link href="https://discord.com/invite/eWmzKsY">
-            <a>
-              <Image src={discord} width={35} height={30} alt="Discord Icon" />
-            </a>
-          </Link>
+          <a
+            href="https://discord.com/invite/eWmzKsY"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src={discord} width={35} height={30} alt="Discord Icon" />
+          </a>
         </section>
         <section className={styles.footerlogo}>
-          <Link href="mailto: acm@ucla.edu">
-            <a>
-              <Image src={email} width={35} height={30} alt="Email Icon" />
-            </a>
-          </Link>
+          <a
+            href="mailto: acm@ucla.edu"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.mailanchor}
+          >
+            <Image src={email} width={35} height={30} alt="Email Icon" />
+          </a>
         </section>
       </section>
       <section className={styles.credit}>
