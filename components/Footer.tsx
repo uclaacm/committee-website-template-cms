@@ -5,7 +5,7 @@ import WordmarkLogo from '../public/acm-logo-wordmark-extended.png';
 import discord from '../public/discord.png';
 import email from '../public/email.png';
 import instagram from '../public/instagram.png';
-import styles from '../styles/Home.module.scss';
+import styles from '../styles/Footer.module.scss';
 
 export default function Footer() {
   return (
@@ -45,7 +45,7 @@ export default function Footer() {
           </Link>
         </section>
       </section>
-      <section className={styles.copyright}>
+      <section className={styles.credit}>
         <span>
           Made by{' '}
           <Link

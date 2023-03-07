@@ -14,28 +14,6 @@
   align-items: center;
 }
 
-.socials {
-  display: flex;
-  flex: 1;
-  padding: 1rem 5;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-}
-
-.footerlogo {
-  margin-top: 03rem;
-  padding: 0.75rem;
-}
-
-.copyright {
-  display: flex;
-  flex: 1;
-  padding: 1rem 2rem;
-  font-weight: bold;
-}
-
 .title a {
   color: $acm-blue;
   text-decoration: none;
