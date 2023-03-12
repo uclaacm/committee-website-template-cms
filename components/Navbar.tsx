@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import WordmarkLogo from '../public/acm-logo-wordmark-extended.png';
+import styles from '../styles/Navbar.module.scss';
 
 export default function Navbar() {
   return (
@@ -20,10 +21,13 @@ export default function Navbar() {
       </div>
       <div className="navbar-items">
         <div className="navbar-link">
-          <Link href="/otherPage">Other Page</Link>
+          <Link href="/">team</Link>
         </div>
         <div className="navbar-link">
-          <Link href="/eventsPage">Events Page</Link>
+          <Link href="/eventsPage">events</Link>
+        </div>
+        <div className="navbar-link">
+            <Link href="/" ><a className={styles.join}>Join Us</a></Link>
         </div>
       </div>
     </nav>
