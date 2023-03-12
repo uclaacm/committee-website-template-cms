@@ -1,7 +1,12 @@
-.join{
-    /* TeachLA Green */
-    padding: 0 !important;
-    margin-left: 5vw;
-    border: 1.5px solid #5EDA12;
-    border-radius: 10px;
+a.navlink {
+  padding-left: 0;
+  margin-left: 3.5vw;
+}
+
+#joinlink {
+  color: #5eda12;
+  margin-left: 5vw;
+  padding: 10px;
+  border: 1px solid #5eda12;
+  border-radius: 15px;
 }
