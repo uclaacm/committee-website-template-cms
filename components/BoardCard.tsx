@@ -22,7 +22,7 @@ function BoardCard({
   return (
     <div className={styles.container}>
       <div className={styles.profilepic}>
-        <Image src={imageURL} alt="PFP" width={70} height={70} />
+        <Image src={imageURL} alt="PFP" width={100} height={100} />
       </div>
       <div className={styles.text}>
         <div>
@@ -32,25 +32,25 @@ function BoardCard({
         <div>
           <span className={styles.position}>{position}</span>
         </div>
-        <div className={styles.smalltext}>
+        <div className={styles.contact}>
           <Image
             src="/github-mark.png"
             alt="Github Icon"
             width={21}
             height={21}
           />
-          <a href={github} style={{ padding: '8px', color: 'inherit' }}>
+          <a href={github}>
             {github}
           </a>
         </div>
-        <div className={styles.smalltext}>
+        <div className={styles.contact}>
           <Image
             src="/icons8-mail-24.png"
             alt="Mail Icon"
             width={21}
             height={21}
           />
-          <span style={{ padding: '8px' }}>{email}</span>
+          {email}
         </div>
       </div>
     </div>
