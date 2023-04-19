@@ -39,9 +39,7 @@ function BoardCard({
             width={21}
             height={21}
           />
-          <a href={github}>
-            {github}
-          </a>
+          <a href={github}>{github}</a>
         </div>
         <div className={styles.contact}>
           <Image

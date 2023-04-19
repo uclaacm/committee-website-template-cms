@@ -33,7 +33,7 @@
 }
 
 .pronouns {
-  font-size: .75em;
+  font-size: 0.75em;
 }
 
 .position {
@@ -45,8 +45,9 @@
   display: flex;
   align-items: center;
   line-height: 0.8;
-  font-size: .8em;
+  font-size: 0.8em;
   gap: 8px;
+
   a {
     text-decoration: none;
     color: inherit;
@@ -59,7 +60,7 @@
     height: 120px;
     padding: 7px;
     margin-left: 12px;
-    margin-right: 12px
+    margin-right: 12px;
   }
 
   .profilepic {
