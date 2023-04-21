@@ -21,25 +21,39 @@ export default function Navbar() {
       </div>
       <div className="navbar-items">
         <div className="navbar-link">
-          <Link href="/"><a className ={styles.navlink}>about</a></Link>
+          <Link href="/">
+            <a className={styles.navlink}>about</a>
+          </Link>
         </div>
         <div className="navbar-link">
-          <Link href="/"><a className ={styles.navlink}>blog</a></Link>
+          <Link href="/">
+            <a className={styles.navlink}>blog</a>
+          </Link>
         </div>
         <div className="navbar-link">
-          <Link href="/"><a className ={styles.navlink}>dev</a></Link>
+          <Link href="/">
+            <a className={styles.navlink}>dev</a>
+          </Link>
         </div>
         <div className="navbar-link">
-          <Link href="/"><a className ={styles.navlink}>team</a></Link>
+          <Link href="/">
+            <a className={styles.navlink}>team</a>
+          </Link>
         </div>
         <div className="navbar-link">
-          <Link href="/"><a className ={styles.navlink}>curriculum</a></Link>
+          <Link href="/">
+            <a className={styles.navlink}>curriculum</a>
+          </Link>
         </div>
         <div className="navbar-link">
-          <Link href="/eventsPage"><a className ={styles.navlink}>events</a></Link>
+          <Link href="/eventsPage">
+            <a className={styles.navlink}>events</a>
+          </Link>
         </div>
-        <div className="navbar-link" >
-            <Link href="/"><a id={styles.joinlink} >Join Us</a></Link>
+        <div className="navbar-link">
+          <Link href="/">
+            <a id={styles.joinlink}>Join Us</a>
+          </Link>
         </div>
       </div>
     </nav>
