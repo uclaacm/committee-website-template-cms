@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, {useState} from 'react';
 import WordmarkLogo from '../public/acm-logo-wordmark-extended.png';
-import styles from '../styles/Navbar.module.scss';
+import styles from '../styles/Navbar.module.scss'; 
+import {FaTimes, FaBars} from 'react-icons/fa';
 
 export default function Navbar() {
+  const [clicked,setClicked] = useState(false);
   return (
-    <nav className="navbar">
+    <div>
+    <nav className={styles.navbar}>
       <div className="navbar-brand">
         <Link href="/">
           <a className="force-child-display-block">
@@ -19,43 +22,21 @@ export default function Navbar() {
           </a>
         </Link>
       </div>
-      <div className="navbar-items">
-        <div className="navbar-link">
-          <Link href="/">
-            <a className={styles.navlink}>about</a>
-          </Link>
-        </div>
-        <div className="navbar-link">
-          <Link href="/">
-            <a className={styles.navlink}>blog</a>
-          </Link>
-        </div>
-        <div className="navbar-link">
-          <Link href="/">
-            <a className={styles.navlink}>dev</a>
-          </Link>
-        </div>
-        <div className="navbar-link">
-          <Link href="/">
-            <a className={styles.navlink}>team</a>
-          </Link>
-        </div>
-        <div className="navbar-link">
-          <Link href="/">
-            <a className={styles.navlink}>curriculum</a>
-          </Link>
-        </div>
-        <div className="navbar-link">
-          <Link href="/eventsPage">
-            <a className={styles.navlink}>events</a>
-          </Link>
-        </div>
-        <div className="navbar-link">
-          <Link href="/">
-            <a id={styles.joinlink}>Join Us</a>
-          </Link>
-        </div>
+      <div>
+        <ul className={styles['nav-item-list']} id={clicked?styles.active : ""}>
+          <li><Link href="/"><a>about</a></Link></li>
+          <li><Link href="/"><a>blog</a></Link></li>
+          <li><Link href="/"><a>dev</a></Link></li>
+          <li><Link href="/"><a>team</a></Link></li>
+          <li><Link href="/"><a>curriculum</a></Link></li>
+          <li><Link href="/"><a>events</a></Link></li>
+          <li><Link href="/"><button>Join Us</button></Link></li>          
+        </ul>
+      </div>
+      <div id={styles['small-screen']}>
+        <i onClick={()=>setClicked(!clicked)}>{clicked ? <FaTimes/> : <FaBars/>}</i>
       </div>
     </nav>
+    </div>
   );
 }
