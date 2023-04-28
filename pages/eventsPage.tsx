@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import MainLayout from '../components/MainLayout';
 import styles from '../styles/Events.module.scss';
-import getAllEvents from '../scripts/event-generator-sheets.mjs';
+// import getAllEvents from '../scripts/event-generator-sheets.mjs';
 
 // import moment from 'moment';
 
@@ -18,9 +18,10 @@ import getAllEvents from '../scripts/event-generator-sheets.mjs';
 // 	});
 // };
 
-export default function Events({events}: {events: Array<Array>}) {
-  const [activeEvent, setActiveEvent] = useState(null);
-	const [indexedEvents, setIndexedEvents] = useState(events.map(({event, index}) => ({...event, id: index})));
+export default function Events() {
+  // export default function Events({events}: {events: Array<Array>}) {
+  // const [activeEvent, setActiveEvent] = useState(null);
+  // const [indexedEvents, setIndexedEvents] = useState(events.map(({event, index}) => ({...event, id: index})));
   return (
     <MainLayout>
       <div className={styles.main}>
@@ -45,20 +46,20 @@ export default function Events({events}: {events: Array<Array>}) {
       </div>
     </MainLayout>
   );
-};
+}
 
-export const getStaticProps = async () => {
-	const events = await getAllEvents();
-	// Attempt to replace new lines with <br/>, doesnt work
-	// const processedEvents = events.map((event) => (
-	// 	{...event, description: <>{event.description.replace(/\n/g, '<br/>')}</>}));
-	// console.log(processedEvents);
+// export const getStaticProps = async () => {
+// 	const events = await getAllEvents();
+// 	// Attempt to replace new lines with <br/>, doesnt work
+// 	// const processedEvents = events.map((event) => (
+// 	// 	{...event, description: <>{event.description.replace(/\n/g, '<br/>')}</>}));
+// 	// console.log(processedEvents);
 
-	return {
-		props: {
-			events: events,
-		},
+// 	return {
+// 		props: {
+// 			events: events,
+// 		},
 
-		revalidate: 3600,
-	};
-};
+// 		revalidate: 3600,
+// 	};
+// };
