@@ -1,42 +1,41 @@
-.navbar{
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px 60px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 60%);
 }
 
-.nav-item-list{
+.nav-item-list {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.nav-item-list#active{
-  right: 0px;
+.nav-item-list#active {
+  right: 0;
 }
 
-.nav-item-list button{
-  color: rgb(30,108,255);
+.nav-item-list button {
+  color: rgb(30 108 255);
   text-transform: none;
   background-color: white;
-  border: 2px solid rgb(30,108,255);
-  margin: 0px;
+  border: 2px solid rgb(30 108 255);
+  margin: 0;
 }
 
-.nav-item-list button:hover{
+.nav-item-list button:hover {
   color: white;
-  background-color: rgb(30,108,255);
+  background-color: rgb(30 108 255);
 }
 
-
-.nav-item-list li{
+.nav-item-list li {
   list-style: none;
   padding: 0 20px;
   position: relative;
 }
 
-.nav-item-list li a{
+.nav-item-list li a {
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -44,51 +43,45 @@
   transition: 0.3s;
 }
 
-.nav-item-list li a:hover{
-  color: rgb(30,108,255);
+.nav-item-list li a:hover {
+  color: rgb(30 108 255);
 }
 
-
-#small-screen{
+#small-screen {
   display: none;
 }
 
-#small-screen i:hover{
-  color: rgb(30,108,255);
+#small-screen i:hover {
+  color: rgb(30 108 255);
 }
 
-@media screen and (max-width: 1024px){
-  .nav-item-list{
+@media screen and (max-width: 1024px) {
+  .nav-item-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     position: fixed;
-    top:70px;
+    top: 70px;
     right: -300px;
     width: 300px;
     height: 100vh;
     background: white;
     opacity: 0.95;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    box-shadow: 0 2px 5px rgb(0 0 0 / 60%);
     padding: 40px 0 0 10px;
   }
 
-  .nav-item-list li{
+  .nav-item-list li {
     margin-bottom: 25px;
   }
 
-  #small-screen{
+  #small-screen {
     display: block;
   }
 
-  #small-screen i{
+  #small-screen i {
     font-size: 24px;
     cursor: pointer;
   }
 }
-
-
-
-
-
