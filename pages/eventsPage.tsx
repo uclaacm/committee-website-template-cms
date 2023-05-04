@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import EventCard from '../components/EventCard';
 import MainLayout from '../components/MainLayout';
 import getAllEvents from '../scripts/event-generator-sheets.mjs';
@@ -16,11 +16,11 @@ interface Event {
   event_type: string;
   registration_link: string;
   max_capacity: number;
-  }
-
-interface EventClass {
-  className?: string;
 }
+
+// interface EventClass {
+//   className?: string;
+// }
 
 // const getEventClassByEvent = (event: Event): EventClass => {
 //   if (!event) {
@@ -42,7 +42,7 @@ interface Props {
 export default function Events({ events }: Props): JSX.Element {
   // const [activeEvent, setActiveEvent] = useState<Event | null>(null);
   const [indexedEvents] = useState<Event[]>( // wasn't using setindexedEvents so was getting linting errors </3
-    events.map((event, index) => ({ ...event, id: index }))
+    events.map((event, index) => ({ ...event, id: index })),
   );
 
   return (
