@@ -59,12 +59,21 @@ export default function Events({ events }: Props): JSX.Element {
           {indexedEvents.slice(1).map((event, index) => {
             const start = new Date(event.start);
             const end = new Date(event.end);
+            const startDate = start.toDateString();
+            const endDate = end.toDateString();
+            const startTime = start.toLocaleTimeString();
+            const endTime = end.toLocaleTimeString();
+            let time =`${startTime.slice(0,4) + startTime.slice(8)} - ${endTime.slice(0,4) + endTime.slice(8)}`;
+            {startDate === endDate ?
+            time = `${startDate} ` + time : time = `${startDate} - ${endDate} ` + time;}
+            // start = start.toString().split(/\s+/).slice(0, 5).join(' ')
+
             return (
               <div key={index} className={styles.card}>
                 <EventCard
                   header={event.title}
                   body={event.description}
-                  time={`${start.toLocaleString()} - ${end.toLocaleString()}`}
+                  time={time}
                 />
               </div>
             );
