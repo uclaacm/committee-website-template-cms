@@ -56,7 +56,7 @@ export default function Events({ events }: Props): JSX.Element {
         </p>
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
-          {indexedEvents.map((event, index) => {
+          {indexedEvents.slice(1).map((event, index) => {
             const start = new Date(event.start);
             const end = new Date(event.end);
             return (
