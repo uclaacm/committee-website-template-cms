@@ -57,12 +57,14 @@ export default function Events({ events }: Props): JSX.Element {
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
           {indexedEvents.map((event, index) => {
+            const start = new Date(event.start);
+            const end = new Date(event.end);
             return (
               <div key={index} className={styles.card}>
                 <EventCard
                   header={event.title}
                   body={event.description}
-                  time={`${event.start} - ${event.end}`}
+                  time={`${start.toLocaleString()} - ${end.toLocaleString()}`}
                 />
               </div>
             );
