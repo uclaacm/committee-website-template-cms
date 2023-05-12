@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { GetStaticProps } from 'next';
 import React, { useState } from 'react';
 import EventCard from '../components/EventCard';
@@ -57,16 +58,17 @@ export default function Events({ events }: Props): JSX.Element {
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
           {indexedEvents.slice(1).map((event, index) => {
-            const start = new Date(event.start);
-            const end = new Date(event.end);
-            const startDate = start.toDateString();
-            const endDate = end.toDateString();
-            const startTime = start.toLocaleTimeString();
-            const endTime = end.toLocaleTimeString();
-            let time =`${startTime.slice(0,4) + startTime.slice(8)} - ${endTime.slice(0,4) + endTime.slice(8)}`;
-            {startDate === endDate ?
-            time = `${startDate} ` + time : time = `${startDate} - ${endDate} ` + time;}
-            // start = start.toString().split(/\s+/).slice(0, 5).join(' ')
+            const start = format(new Date(event.start), 'h:mma');
+            const end = format(new Date(event.end), 'h:mma');
+            const startDate = format(new Date(event.start), 'E MMM d');
+            const endDate = format(new Date(event.end), 'E MMM d');
+            let time = start + ' - ' + end;
+            {
+              startDate === endDate
+                ? (time = startDate + ' ' + time)
+                : (time =
+                    startDate + ' ' + start + ' - ' + endDate + ' ' + end);
+            }
 
             return (
               <div key={index} className={styles.card}>
