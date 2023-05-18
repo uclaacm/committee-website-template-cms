@@ -17,7 +17,7 @@
 .socials {
   display: flex;
   flex: 1;
-  padding: 1rem 5;
+  padding: 1.5rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .footerlogo {
-  padding: 0.75rem;
+  padding: 0.5rem;
 }
 
 .mailanchor::before {
@@ -36,7 +36,11 @@
   display: flex;
   flex: 1;
   padding: 0 2rem;
-  font-weight: bold;
+  justify-items: center;
+  margin-bottom: 1rem;
+  margin-top: -1.5rem;
+  font-size: 13px;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 600px) {
