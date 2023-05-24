@@ -42,6 +42,7 @@ fs.createReadStream(fname)
               time: event.Time,
               date: date,
               fblink: event['Facebook Link'],
+              banner: event['Newsletter Banner'],
             });
           } catch (err) {
             // eslint-disable-next-line no-console
