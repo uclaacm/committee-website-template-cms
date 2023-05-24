@@ -16,6 +16,7 @@ interface Event {
   event_type: string;
   registration_link: string;
   max_capacity: number;
+  banner: string;
 }
 
 // interface EventClass {
@@ -74,6 +75,7 @@ export default function Events({ events }: Props): JSX.Element {
                   header={event.title}
                   body={event.description}
                   time={time}
+                  img={event.banner}
                 />
               </div>
             );
@@ -90,6 +92,9 @@ export const getStaticProps: GetStaticProps = async () => {
   // const processedEvents = events.map((event) => (
   //  {...event, description: <>{event.description.replace(/\n/g, '<br/>')}</>}));
   // console.log(processedEvents);
+  for (const event of events) {
+    event.banner = await event.banner;
+  }
 
   return {
     props: {

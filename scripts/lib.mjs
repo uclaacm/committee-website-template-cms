@@ -37,6 +37,7 @@ const generateSingleEvent = ({
   rawEnd,
   date,
   fblink,
+  banner
 }) => {
   let allDay = false;
 
@@ -86,6 +87,17 @@ const generateSingleEvent = ({
     throw new Error('Missing title');
   }
 
+  if (!banner) {
+    banner = "/acm-logo-wordmark-extended.png";
+  } else if (banner.includes('drive.google.com')) {
+      try {
+        banner = getDirectImageUrl(banner);
+      } catch (err) {
+        banner = "/acm-logo-wordmark-extended.png";
+      }
+
+  }
+
   return {
     id,
     title,
@@ -96,6 +108,7 @@ const generateSingleEvent = ({
     committee,
     description,
     links,
+    banner
   };
 };
 
