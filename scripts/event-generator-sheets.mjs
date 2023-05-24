@@ -82,7 +82,7 @@ async function getSingleEventsOfWeek(n) {
           rawEnd: row[4],
           date: row[2],
           fblink: row[7],
-          banner: row[8]
+          banner: row[8],
         }),
       );
     } catch (err) {
@@ -130,7 +130,7 @@ function getRecurringEventsOfWeek(rows, n) {
             rawEnd: row[6],
             date: date.toISOString().split('T')[0],
             fblink: row[9],
-            banner: row[10]
+            banner: row[10],
           }),
         );
       } catch (err) {

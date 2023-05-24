@@ -37,7 +37,7 @@ const generateSingleEvent = ({
   rawEnd,
   date,
   fblink,
-  banner
+  banner,
 }) => {
   let allDay = false;
 
@@ -88,14 +88,13 @@ const generateSingleEvent = ({
   }
 
   if (!banner) {
-    banner = "/acm-logo-wordmark-extended.png";
+    banner = '/acm-logo-wordmark-extended.png';
   } else if (banner.includes('drive.google.com')) {
-      try {
-        banner = getDirectImageUrl(banner);
-      } catch (err) {
-        banner = "/acm-logo-wordmark-extended.png";
-      }
-
+    try {
+      banner = getDirectImageUrl(banner);
+    } catch (err) {
+      banner = '/acm-logo-wordmark-extended.png';
+    }
   }
 
   return {
@@ -108,7 +107,7 @@ const generateSingleEvent = ({
     committee,
     description,
     links,
-    banner
+    banner,
   };
 };
 

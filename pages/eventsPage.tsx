@@ -64,9 +64,14 @@ export default function Events({ events }: Props): JSX.Element {
             const endDate = end.toDateString();
             const startTime = start.toLocaleTimeString();
             const endTime = end.toLocaleTimeString();
-            let time =`${startTime.slice(0,4) + startTime.slice(8)} - ${endTime.slice(0,4) + endTime.slice(8)}`;
-            {startDate === endDate ?
-            time = `${startDate} ` + time : time = `${startDate} - ${endDate} ` + time;}
+            let time = `${startTime.slice(0, 4) + startTime.slice(8)} - ${
+              endTime.slice(0, 4) + endTime.slice(8)
+            }`;
+            {
+              startDate === endDate
+                ? (time = `${startDate} ` + time)
+                : (time = `${startDate} - ${endDate} ` + time);
+            }
             // start = start.toString().split(/\s+/).slice(0, 5).join(' ')
 
             return (
