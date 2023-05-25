@@ -67,7 +67,6 @@ async function getSingleEventsOfWeek(n) {
       continue;
     }
     try {
-
       events.push(
         generateSingleEvent({
           id: null,
@@ -82,7 +81,7 @@ async function getSingleEventsOfWeek(n) {
           rawEnd: row[4],
           date: row[2],
           fblink: row[7],
-          banner: row[8]
+          banner: row[8],
         }),
       );
     } catch (err) {
