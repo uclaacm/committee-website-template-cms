@@ -66,7 +66,6 @@ async function getSingleEventsOfWeek(n) {
     ) {
       continue;
     }
-
     try {
       events.push(
         generateSingleEvent({
@@ -196,29 +195,5 @@ function writeToOutput(events) {
     console.log('Output successfully saved to output.json');
   });
 }
-
-const getDirectImageUrl = async (googleDriveUrl) => {
-  const fileId = extractFileId(googleDriveUrl);
-
-  const auth = new google.auth.GoogleAuth({
-    keyFile: 'path/to/service-account-key.json', // Path to your service account key file
-    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
-  });
-
-  const drive = google.drive({ version: 'v3', auth });
-
-  const { data } = await drive.files.get({
-    fileId: fileId,
-    fields: 'webViewLink',
-  });
-
-  console.log(data.webViewLink);
-  return data.webViewLink;
-};
-
-const extractFileId = (googleDriveUrl) => {
-  const match = googleDriveUrl.match(/\/file\/d\/(.+?)\//);
-  return match ? match[1] : null;
-};
 
 export default getAllEvents;

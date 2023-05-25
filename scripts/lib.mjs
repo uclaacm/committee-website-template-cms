@@ -90,11 +90,8 @@ const generateSingleEvent = ({
   if (!banner) {
     banner = '/acm-logo-wordmark-extended.png';
   } else if (banner.includes('drive.google.com')) {
-    try {
-      banner = getDirectImageUrl(banner);
-    } catch (err) {
-      banner = '/acm-logo-wordmark-extended.png';
-    }
+    const fileID = banner.match(/\/file\/d\/(.+?)\//)[1];
+    banner = `https://drive.google.com/uc?export=download&id=${fileID}`;
   }
 
   return {
