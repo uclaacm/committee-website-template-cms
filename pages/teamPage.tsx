@@ -63,12 +63,12 @@ export default function OtherPage() {
 
         <div>
           <h2 className={styles.subtitle}>General Members</h2>
-          <p className={styles.description}>
+          {/* <p className={styles.description}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
-          </p>
+          </p> */}
           <div className={styles.gmgrid}>
             {/* 3 per row */}
             <div className={styles.card}>
