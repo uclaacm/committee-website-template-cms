@@ -47,14 +47,16 @@ export default function Events({ events }: Props): JSX.Element {
   const [indexedEvents] = useState<Event[]>( // wasn't using setindexedEvents so was getting linting errors </3
     events.map((event, index) => ({ ...event, id: index })),
   );
+  //replace committee below
+  const committee = 'icpc';
 
-  // replace committee below
   const filteredEvents = indexedEvents.filter(
-    (event) => event.committee === 'icpc',
+    (event) => event.committee === committee,
   );
 
-  // if committee is board, uncomment line below
-  // filteredEvents.shift();
+  if (committee === 'board') {
+    filteredEvents.shift();
+  }
 
   return (
     <MainLayout>

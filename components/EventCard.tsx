@@ -15,12 +15,7 @@ function EventCard({ header, body, time, img }: CardInterface) {
         <div className={styles.header}>{header}</div>
         <div className={styles.body}>
           <div style={{ flex: '1' }}>{body}</div>
-          <Image
-            style={{ justifySelf: 'center' }}
-            src={img}
-            width={400}
-            height={300}
-          />
+          <Image src={img} width={300} height={300} />
         </div>
         <div className={styles.time}>
           <Image src="/icons8-calendar-24.png" width={20} height={20} />
