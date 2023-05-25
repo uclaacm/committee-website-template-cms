@@ -26,9 +26,9 @@ const Home: NextPage = () => {
             </a>
           </div>
         </div>
-        <div className={styles['main-section']}>
+        {/* <div className={styles['main-section']}>
           <h1 className={styles.content}>INSERT CONTENT HERE</h1>
-        </div>
+        </div> */}
       </div>
     </MainLayout>
   );
