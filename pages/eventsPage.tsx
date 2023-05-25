@@ -39,6 +39,7 @@ interface Event {
 
 interface Props {
   events: Event[];
+  committee: string;
 }
 
 export default function Events({ events }: Props): JSX.Element {
@@ -46,6 +47,14 @@ export default function Events({ events }: Props): JSX.Element {
   const [indexedEvents] = useState<Event[]>( // wasn't using setindexedEvents so was getting linting errors </3
     events.map((event, index) => ({ ...event, id: index })),
   );
+
+  // replace committee below
+  const filteredEvents = indexedEvents.filter(
+    (event) => event.committee === 'icpc',
+  );
+
+  // if committee is board, uncomment line below
+  // filteredEvents.shift();
 
   return (
     <MainLayout>
@@ -58,7 +67,7 @@ export default function Events({ events }: Props): JSX.Element {
         </p>
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
-          {indexedEvents.slice(1).map((event, index) => {
+          {filteredEvents.map((event, index) => {
             const start = format(new Date(event.start), 'h:mma');
             const end = format(new Date(event.end), 'h:mma');
             const startDate = format(new Date(event.start), 'E MMM d');
