@@ -1,4 +1,4 @@
-@import "global_variables";
+@use "../styles/global_variables.module.scss" as vars;
 
 .container {
   display: inline-block;
@@ -29,7 +29,7 @@
 }
 
 .time {
-  color: $committee-color;
+  color: vars.$committee-color;
   font-family: "Courier New", Courier, monospace;
   display: flex;
   margin-top: 15px;

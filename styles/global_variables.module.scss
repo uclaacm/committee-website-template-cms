@@ -1,3 +1,8 @@
 // to use variables across other scss files, do a @import "global_variables"
 $acm-blue: #1e6cff;
 $committee-color: #5eda12;
+$committee: meow;
+
+:export {
+  committee: $committee;
+}
