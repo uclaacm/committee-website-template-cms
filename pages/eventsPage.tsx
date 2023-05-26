@@ -100,6 +100,7 @@ export default function Events({ events }: Props): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  
   const events = await getAllEvents();
   // Attempt to replace new lines with <br/>, doesn't work
   // const processedEvents = events.map((event) => (

@@ -2,7 +2,24 @@ import type { NextPage } from 'next';
 import MainLayout from '../components/MainLayout';
 import styles from '../styles/landing.module.scss';
 
-const Home: NextPage = () => {
+interface Committee{
+  committee: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  logoLink: string;
+  dcLink: string;
+  igLink: string;
+  email: string;
+  color: string;
+}
+
+interface Props{
+  committee: Committee;
+  idName: string;
+}
+
+const Home:NextPage = () => {
   return (
     <MainLayout>
       <div>

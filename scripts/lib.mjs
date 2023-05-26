@@ -108,6 +108,36 @@ const generateSingleEvent = ({
   };
 };
 
+const generateCommittee = ({
+  // final keys
+  committee,
+  name,
+  subtitle,
+  description,
+  logoLink,
+  dcLink,
+  igLink,
+  email,
+  color,
+}) => {
+
+  if (!committee || !name) {
+    throw new Error('Missing committee name');
+  }
+
+  return {
+    committee,
+    name,
+    subtitle,
+    description,
+    logoLink,
+    dcLink,
+    igLink,
+    email,
+    color,
+  };
+};
+
 const generateDateRange = (startDate, endDate) => {
   let currentDate = startDate;
   const dates = [];
