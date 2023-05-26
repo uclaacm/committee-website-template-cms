@@ -5,6 +5,7 @@ import EventCard from '../components/EventCard';
 import MainLayout from '../components/MainLayout';
 import getAllEvents from '../scripts/event-generator-sheets.mjs';
 import styles from '../styles/Events.module.scss';
+import vars from '../styles/global_variables.module.scss';
 
 interface Event {
   id: number;
@@ -48,7 +49,7 @@ export default function Events({ events }: Props): JSX.Element {
     events.map((event, index) => ({ ...event, id: index })),
   );
   //replace committee below
-  const committee = 'icpc';
+  const committee = vars.committee.toLowerCase();
 
   const filteredEvents = indexedEvents.filter(
     (event) => event.committee === committee,

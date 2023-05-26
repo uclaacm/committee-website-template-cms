@@ -7,8 +7,8 @@ const getCssStringFromCommittee = (committee) => {
     case 'external':
     case 'board':
       return 'board';
-    case 'teach la':
-      return 'teach-la';
+    case 'teachla' || 'teach la' || 'teach-la':
+      return 'teachla';
     case 'ai':
     case 'cyber':
     case 'design':

@@ -83,7 +83,7 @@ Thanks for using our template for your committee's website!
 To build the site with your committee-specific information, you will fill out two fields in the global_variables.module.scss file, which can be found in the styles folder. (full path: ./styles/global_variables.module.scss)
 
 Next to $committee-color, please replace the sample color with the hex code of your committee's color, which will be the accent color for the overall site.
-Next to $committee, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how it appears on the committee info spreadsheet. (example: TeachLA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set!
+Next to $committee, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how you would like it to appear as the title of the site. (example: TeachLA, Teach LA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set!
 
 ## Contribution Workflow
 
