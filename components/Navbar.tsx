@@ -44,6 +44,28 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        <div>
+          <ul
+            className={styles['nav-item-list']}
+            id={clicked ? styles.active : ''}
+          >
+            <li>
+              <Link href="/team">
+                <a>team</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/events">
+                <a>events</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <button>Join Us</button>
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div id={styles['small-screen']}>
           <i onClick={() => setClicked(!clicked)}>
             {clicked ? <FaTimes /> : <FaBars />}
