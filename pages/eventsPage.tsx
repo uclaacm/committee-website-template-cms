@@ -62,11 +62,11 @@ export default function Events({ events }: Props): JSX.Element {
     <MainLayout>
       <div className={styles.main}>
         <h1 className={styles.title}>Events</h1>
-        <p className={styles.description}>
+        {/* <p className={styles.description}>
           Event descriptions Event descriptionsEvent descriptionsEvent
           descriptionsEvent descriptionsEvent descriptions Event
           descriptionsEvent descriptionsEvent descriptions
-        </p>
+        </p> */}
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
           {filteredEvents.map((event, index) => {
