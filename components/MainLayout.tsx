@@ -18,7 +18,7 @@ export default function MainLayout(props: LayoutProps) {
           name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1"
         />
-        <title>{vars.committee}</title>
+        <title>ACM {vars.committee}</title>
         <link rel="icon" href="/logo.png" />
       </Head>
       <Navbar />
