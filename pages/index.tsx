@@ -1,9 +1,9 @@
-import MainLayout from '../components/MainLayout';
-import styles from '../styles/landing.module.scss';
 import { GetStaticProps } from 'next';
+import MainLayout from '../components/MainLayout';
 import getCommitteeInfo from '../scripts/landing-page-generator.mjs';
+import styles from '../styles/landing.module.scss';
 
-interface Committee{
+interface Committee {
   committee: string;
   name: string;
   subtitle: string;
@@ -15,7 +15,7 @@ interface Committee{
   color: string;
 }
 
-interface Props{
+interface Props {
   committee: Committee;
   idName: string;
 }
@@ -29,13 +29,13 @@ export default function Home({ committee }: Props): JSX.Element {
             <div className={styles.heading}>
               <h1 className={styles.title}>
                 ACM&nbsp;
-                <span className={styles['committee-name']}>{committee.name}</span>
+                <span className={styles['committee-name']}>
+                  {committee.name}
+                </span>
               </h1>
               <h2 className={styles.lead}>{committee.subtitle}</h2>
             </div>
-            <p className={styles.description}>
-              {committee.description}
-            </p>
+            <p className={styles.description}>{committee.description}</p>
             <a className={styles['cta-btn']} href="#">
               Join Us
             </a>

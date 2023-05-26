@@ -147,4 +147,9 @@ const generateDateRange = (startDate, endDate) => {
   return dates;
 };
 
-export { getCssStringFromCommittee, generateSingleEvent, generateDateRange ,generateCommittee};
+export {
+  getCssStringFromCommittee,
+  generateSingleEvent,
+  generateDateRange,
+  generateCommittee,
+};

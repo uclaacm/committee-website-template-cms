@@ -2,7 +2,11 @@ import fs from 'fs';
 import { resolve } from 'path';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
-import { getCssStringFromCommittee, generateSingleEvent ,generateCommittee} from './lib.mjs';
+import {
+  getCssStringFromCommittee,
+  generateSingleEvent,
+  generateCommittee,
+} from './lib.mjs';
 
 // .env config
 dotenv.config();
@@ -20,42 +24,40 @@ const DAYS_OF_WEEK = [
   'saturday',
   'sunday',
 ];
-//Grab main information to be displayed 
+//Grab main information to be displayed
 //and write to output.json
-async function getCommitteeInfo(name){
-    const committees = await getGoogleSheetData('committee info!A:I');
-    const committee =[];
-    //get committee
-    for(const row of committees){
-        //Skip header rows and example
-        if(
-            row.length <5 ||
-            row[0] === 'Committee' ||
-            row[0].includes('Example:') ||
-            row[0] != name
-        ) {
-            continue;
-        }
-        try{
-            return generateCommittee({
-                    committee: row[0],
-                    name: row[1],
-                    subtitle: row[2],
-                    description: row[3],
-                    logoLink: row[4],
-                    dcLink: row[5],
-                    igLink: row[6],
-                    email: row[7],
-                    color: row[8],
-                });
-            
-        }
-        catch(err){
-            console.error(`Error ${err} on committee ${row}`);
-        }
+async function getCommitteeInfo(name) {
+  const committees = await getGoogleSheetData('committee info!A:I');
+  const committee = [];
+  //get committee
+  for (const row of committees) {
+    //Skip header rows and example
+    if (
+      row.length < 5 ||
+      row[0] === 'Committee' ||
+      row[0].includes('Example:') ||
+      row[0] != name
+    ) {
+      continue;
     }
-    
-    return committee;
+    try {
+      return generateCommittee({
+        committee: row[0],
+        name: row[1],
+        subtitle: row[2],
+        description: row[3],
+        logoLink: row[4],
+        dcLink: row[5],
+        igLink: row[6],
+        email: row[7],
+        color: row[8],
+      });
+    } catch (err) {
+      console.error(`Error ${err} on committee ${row}`);
+    }
+  }
+
+  return committee;
 }
 
 ////////////////////////////////////////////////////////
