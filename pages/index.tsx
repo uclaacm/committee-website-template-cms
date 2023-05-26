@@ -12,7 +12,9 @@ const Home: NextPage = () => {
             <div className={styles.heading}>
               <h1 className={styles.title}>
                 ACM&nbsp;
-                <span className={styles['committee-name']}>{vars.committee}</span>
+                <span className={styles['committee-name']}>
+                  {vars.committee}
+                </span>
               </h1>
               <h2 className={styles.lead}>making coding accessible</h2>
             </div>
