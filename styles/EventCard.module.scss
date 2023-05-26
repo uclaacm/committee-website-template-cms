@@ -1,0 +1,36 @@
+@import "global_variables";
+
+.container {
+  display: inline-block;
+  position: relative;
+  margin: 2rem, 4rem;
+  width: 100%;
+  min-height: 100;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 4px #f5f0f0;
+}
+
+.text {
+  text-align: left;
+  font-size: 13px;
+  margin: 30px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.header {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 2em;
+}
+
+.body {
+  overflow-wrap: break-word;
+}
+
+.time {
+  color: $committee-color;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  margin-top: 15px;
+}

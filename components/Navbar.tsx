@@ -20,10 +20,10 @@ export default function Navbar() {
       </div>
       <div className="navbar-items">
         <div className="navbar-link">
-          <Link href="/otherPage">Other Page</Link>
+          <Link href="/teamPage">Other Page</Link>
         </div>
         <div className="navbar-link">
-          <Link href="/testPage">Test Page</Link>
+          <Link href="/eventsPage">Events Page</Link>
         </div>
       </div>
     </nav>
