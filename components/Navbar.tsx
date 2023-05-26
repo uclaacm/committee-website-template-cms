@@ -28,32 +28,12 @@ export default function Navbar() {
             id={clicked ? styles.active : ''}
           >
             <li>
-              <Link href="/">
-                <a>about</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>blog</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>dev</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
+              <Link href="/team">
                 <a>team</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
-                <a>curriculum</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
+              <Link href="/events">
                 <a>events</a>
               </Link>
             </li>
