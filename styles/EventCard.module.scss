@@ -1,4 +1,4 @@
-@import "global_variables";
+@use "../styles/global_variables.module.scss" as vars;
 
 .container {
   display: inline-block;
@@ -25,12 +25,20 @@
 }
 
 .body {
+  display: flex;
+  gap: 4rem;
   overflow-wrap: break-word;
 }
 
 .time {
-  color: $committee-color;
+  color: vars.$committee-color;
   font-family: "Courier New", Courier, monospace;
   display: flex;
   margin-top: 15px;
+}
+
+@media (max-width: 1175px) {
+  .body {
+    display: inline;
+  }
 }

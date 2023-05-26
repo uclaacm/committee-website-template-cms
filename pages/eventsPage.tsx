@@ -1,9 +1,64 @@
-import React from 'react';
+import { format } from 'date-fns';
+import { GetStaticProps } from 'next';
+import React, { useState } from 'react';
 import EventCard from '../components/EventCard';
 import MainLayout from '../components/MainLayout';
+import getAllEvents from '../scripts/event-generator-sheets.mjs';
 import styles from '../styles/Events.module.scss';
+import vars from '../styles/global_variables.module.scss';
 
-export default function Test() {
+interface Event {
+  id: number;
+  title: string;
+  description: string;
+  location: string;
+  start: string;
+  end: string;
+  committee: string;
+  event_type: string;
+  registration_link: string;
+  max_capacity: number;
+  banner: string;
+}
+
+// interface EventClass {
+//   className?: string;
+// }
+
+// const getEventClassByEvent = (event: Event): EventClass => {
+//   if (!event) {
+//     return {};
+//   }
+//   let modifierStr = '';
+//   if (event.committee) {
+//     modifierStr = `rbc-override-${event.committee}`;
+//   }
+//   return ({
+//     className: `rbc-override-event ${modifierStr}`,
+//   });
+// };
+
+interface Props {
+  events: Event[];
+  committee: string;
+}
+
+export default function Events({ events }: Props): JSX.Element {
+  // const [activeEvent, setActiveEvent] = useState<Event | null>(null);
+  const [indexedEvents] = useState<Event[]>( // wasn't using setindexedEvents so was getting linting errors </3
+    events.map((event, index) => ({ ...event, id: index })),
+  );
+  //replace committee below
+  const committee = vars.committee.toLowerCase();
+
+  const filteredEvents = indexedEvents.filter(
+    (event) => event.committee === committee,
+  );
+
+  if (committee === 'board') {
+    filteredEvents.shift();
+  }
+
   return (
     <MainLayout>
       <div className={styles.main}>
@@ -15,53 +70,50 @@ export default function Test() {
         </p> */}
         <div>
           <h2 className={styles.subtitle}>Upcoming Events</h2>
-          <div className={styles.card}>
-            <EventCard
-              header="Header"
-              body="She exposed painted fifteen are noisier mistake led waiting. Surprise not wandered speedily husbands although yet end. Are court tiled cease young built fat one man taken. We highest ye friends is exposed equally in. Ignorant had too strictly followed. Astonished as travelling assistance or unreserved oh pianoforte ye. Five with seen put need tore add neat. Bringing it is he returned received raptures."
-              time="time"
-            />
-          </div>
-          <div className={styles.card}>
-            <EventCard
-              header="Header"
-              body="It sportsman earnestly ye preserved an on. Moment led family sooner cannot her window pulled any. Or raillery if improved landlord to speaking hastened differed he. Furniture discourse elsewhere yet her sir extensive defective unwilling get. Why resolution one motionless you him thoroughly. Noise is round to in it quick timed doors. Written address greatly get attacks inhabit pursuit our but. Lasted hunted enough an up seeing in lively letter. Had judgment out opinions property the supplied."
-              time="time"
-            />
-          </div>
-          <div className={styles.card}>
-            <EventCard
-              header="Header"
-              body="Same an quit most an. Admitting an mr disposing sportsmen. Tried on cause no spoil arise plate. Longer ladies valley get esteem use led six. Middletons resolution advantages expression themselves partiality so me at. West none hope if sing oh sent tell is."
-              time="time"
-            />
-          </div>
-        </div>
-        <div>
-          <h2 className={styles.subtitle}>Past Events</h2>
-          <div className={styles.card}>
-            <EventCard
-              header="Header"
-              body="Same an quit most an. Admitting an mr disposing sportsmen. Tried on cause no spoil arise plate. Longer ladies valley get esteem use led six. Middletons resolution advantages expression themselves partiality so me at. West none hope if sing oh sent tell is."
-              time="time"
-            />
-          </div>
-          <div className={styles.card}>
-            <EventCard
-              header="Header"
-              body="It sportsman earnestly ye preserved an on. Moment led family sooner cannot her window pulled any. Or raillery if improved landlord to speaking hastened differed he. Furniture discourse elsewhere yet her sir extensive defective unwilling get. Why resolution one motionless you him thoroughly. Noise is round to in it quick timed doors. Written address greatly get attacks inhabit pursuit our but. Lasted hunted enough an up seeing in lively letter. Had judgment out opinions property the supplied."
-              time="time"
-            />
-          </div>
-          <div className={styles.card}>
-            <EventCard
-              header="Header"
-              body="She exposed painted fifteen are noisier mistake led waiting. Surprise not wandered speedily husbands although yet end. Are court tiled cease young built fat one man taken. We highest ye friends is exposed equally in. Ignorant had too strictly followed. Astonished as travelling assistance or unreserved oh pianoforte ye. Five with seen put need tore add neat. Bringing it is he returned received raptures."
-              time="time"
-            />
-          </div>
+          {filteredEvents.map((event, index) => {
+            const start = format(new Date(event.start), 'h:mma');
+            const end = format(new Date(event.end), 'h:mma');
+            const startDate = format(new Date(event.start), 'E MMM d');
+            const endDate = format(new Date(event.end), 'E MMM d');
+            let time = start + ' - ' + end;
+            {
+              startDate === endDate
+                ? (time = startDate + ' ' + time)
+                : (time =
+                    startDate + ' ' + start + ' - ' + endDate + ' ' + end);
+            }
+
+            return (
+              <div key={index} className={styles.card}>
+                <EventCard
+                  header={event.title}
+                  body={event.description}
+                  time={time}
+                  img={event.banner}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </MainLayout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const events = await getAllEvents();
+  // Attempt to replace new lines with <br/>, doesn't work
+  // const processedEvents = events.map((event) => (
+  //  {...event, description: <>{event.description.replace(/\n/g, '<br/>')}</>}));
+  // console.log(processedEvents);
+  for (const event of events) {
+    event.banner = await event.banner;
+  }
+
+  return {
+    props: {
+      events: events,
+    },
+    revalidate: 3600,
+  };
+};
