@@ -120,7 +120,6 @@ const generateCommittee = ({
   email,
   color,
 }) => {
-
   if (!committee || !name) {
     throw new Error('Missing committee name');
   }

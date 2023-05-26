@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import MainLayout from '../components/MainLayout';
 import styles from '../styles/landing.module.scss';
 
-interface Committee{
+/*interface Committee{
   committee: string;
   name: string;
   subtitle: string;
@@ -17,9 +17,9 @@ interface Committee{
 interface Props{
   committee: Committee;
   idName: string;
-}
+}*/
 
-const Home:NextPage = () => {
+const Home: NextPage = () => {
   return (
     <MainLayout>
       <div>
