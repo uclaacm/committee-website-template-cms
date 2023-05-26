@@ -2,11 +2,7 @@ import fs from 'fs';
 import { resolve } from 'path';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
-import {
-  getCssStringFromCommittee,
-  generateSingleEvent,
-  generateCommitee,
-} from './lib.mjs';
+import { getCssStringFromCommittee, generateSingleEvent ,generateCommittee} from './lib.mjs';
 
 // .env config
 dotenv.config();
@@ -24,163 +20,42 @@ const DAYS_OF_WEEK = [
   'saturday',
   'sunday',
 ];
-//Grab main information to be displayed
+//Grab main information to be displayed 
 //and write to output.json
-async function getCommitteeInfo(name) {
-  const committees = await getGoogleSheetData('committee info!A:I');
-  console.log(committees);
-  const committee = [];
-  //get committee
-  for (const row of committees) {
-    //Skip header rows and example
-    if (
-      row.length < 5 ||
-      row[0] === 'Committee' ||
-      row[0].includes('Example:') ||
-      row[0].toLowerCase().trim() != name.toLowerCase().trim()
-    ) {
-      continue;
+async function getCommitteeInfo(name){
+    const committees = await getGoogleSheetData('committee info!A:I');
+    const committee =[];
+    //get committee
+    for(const row of committees){
+        //Skip header rows and example
+        if(
+            row.length <5 ||
+            row[0] === 'Committee' ||
+            row[0].includes('Example:') ||
+            row[0] != name
+        ) {
+            continue;
+        }
+        try{
+            return generateCommittee({
+                    committee: row[0],
+                    name: row[1],
+                    subtitle: row[2],
+                    description: row[3],
+                    logoLink: row[4],
+                    dcLink: row[5],
+                    igLink: row[6],
+                    email: row[7],
+                    color: row[8],
+                });
+            
+        }
+        catch(err){
+            console.error(`Error ${err} on committee ${row}`);
+        }
     }
-    try {
-      console.log('Found committee');
-      return generateCommitee({
-        committee: getCssStringFromCommittee(row[0]),
-        name: row[1],
-        subtitle: row[2],
-        description: row[3],
-        logoLink: row[4],
-        dcLink: row[5],
-        igLink: row[6],
-        email: row[7],
-        color: row[8],
-      });
-    } catch (err) {
-      console.error(`Error ${err} on committee ${row}`);
-    }
-  }
-
-  return committee;
-}
-
-// Grab all single and recurring events of Week n
-// and write to output.json
-async function writeAllEventsOfWeek(n) {
-  // Get events
-  let events = (await getSingleEventsOfWeek(n)).concat(
-    await getRecurringEventsOfWeek(n),
-  );
-  const cleaned = events.filter((item) => item);
-  writeToOutput(cleaned);
-}
-
-// Get all single and recurring events of the quarter
-// Return as a list of JSONs
-async function getAllEvents() {
-  // Get all single events
-  let promises = [];
-  for (let i = 1; i <= 10; i++) {
-    promises = promises.concat(getSingleEventsOfWeek(i));
-  }
-  let events = await Promise.all(promises);
-  events = [].concat(...events);
-
-  // Get all recurring events
-  let recurring_rows = await getGoogleSheetData('RECURRING EVENTS!A:J');
-  for (let i = 1; i <= 10; i++) {
-    events = events.concat(getRecurringEventsOfWeek(recurring_rows, i));
-  }
-  return events;
-}
-
-// Read single events of Week n
-// Return as array of JSON objects
-async function getSingleEventsOfWeek(n) {
-  const rows = await getGoogleSheetData('Week ' + n + '!A:I');
-
-  const events = [];
-  for (const row of rows) {
-    // Skip header rows and example event
-    if (
-      row.length < 5 ||
-      row[0] === 'Committee' ||
-      row[0].includes('Example:')
-    ) {
-      continue;
-    }
-    try {
-      events.push(
-        generateSingleEvent({
-          id: null,
-          title: row[1],
-          start: null,
-          end: null,
-          committee: getCssStringFromCommittee(row[0]),
-          location: row[5] ?? '',
-          description: row[6] ?? '',
-          links: null,
-          rawStart: row[3],
-          rawEnd: row[4],
-          date: row[2],
-          fblink: row[7],
-          banner: row[8],
-        }),
-      );
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.error(`Error ${err} on event ${row}`);
-    }
-  }
-
-  return events;
-}
-
-// Read recurring events of Week n
-// Return as array of JSON objects
-function getRecurringEventsOfWeek(rows, n) {
-  const events = [];
-  for (const row of rows) {
-    // Skip header rows and example event
-    if (
-      row.length < 5 ||
-      row[0] === 'Committee' ||
-      row[0].includes('Example:')
-    ) {
-      continue;
-    }
-
-    // Check the current week is within the event's range
-    if (parseInt(row[2]) <= n && parseInt(row[3]) >= n) {
-      try {
-        // Calculate date of event for this week
-        const d = (n - 1) * 7 + DAYS_OF_WEEK.indexOf(row[4].toLowerCase());
-        const date = new Date(FIRST_DAY_OF_QUARTER);
-        date.setDate(date.getDate() + d);
-
-        events.push(
-          generateSingleEvent({
-            id: null,
-            title: row[1],
-            start: null,
-            end: null,
-            committee: getCssStringFromCommittee(row[0]),
-            location: row[7] ?? '',
-            description: row[8] ?? '',
-            links: null,
-            rawStart: row[5],
-            rawEnd: row[6],
-            date: date.toISOString().split('T')[0],
-            fblink: row[9],
-            banner: row[10],
-          }),
-        );
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error(`Error ${err} on event ${row}`);
-      }
-    }
-  }
-
-  return events;
+    
+    return committee;
 }
 
 ////////////////////////////////////////////////////////

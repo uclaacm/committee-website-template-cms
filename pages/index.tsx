@@ -1,8 +1,9 @@
-import type { NextPage } from 'next';
 import MainLayout from '../components/MainLayout';
 import styles from '../styles/landing.module.scss';
+import { GetStaticProps } from 'next';
+import getCommitteeInfo from '../scripts/landing-page-generator.mjs';
 
-/*interface Committee{
+interface Committee{
   committee: string;
   name: string;
   subtitle: string;
@@ -17,9 +18,9 @@ import styles from '../styles/landing.module.scss';
 interface Props{
   committee: Committee;
   idName: string;
-}*/
+}
 
-const Home: NextPage = () => {
+export default function Home({ committee }: Props): JSX.Element {
   return (
     <MainLayout>
       <div>
@@ -28,15 +29,12 @@ const Home: NextPage = () => {
             <div className={styles.heading}>
               <h1 className={styles.title}>
                 ACM&nbsp;
-                <span className={styles['committee-name']}>Teach LA</span>
+                <span className={styles['committee-name']}>{committee.name}</span>
               </h1>
-              <h2 className={styles.lead}>making coding accessible</h2>
+              <h2 className={styles.lead}>{committee.subtitle}</h2>
             </div>
             <p className={styles.description}>
-              ACM Teach LA pairs UCLA students with schools in Los Angeles to
-              provide free computer science classes. Our goal is to empower all
-              students with the ability to code, and use it to make a
-              difference.
+              {committee.description}
             </p>
             <a className={styles['cta-btn']} href="#">
               Join Us
@@ -49,6 +47,14 @@ const Home: NextPage = () => {
       </div>
     </MainLayout>
   );
-};
+}
 
-export default Home;
+export const getStaticProps: GetStaticProps = async () => {
+  const committee = await getCommitteeInfo('Studio');
+  return {
+    props: {
+      committee: committee,
+    },
+    revalidate: 3600,
+  };
+};
