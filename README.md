@@ -52,7 +52,6 @@ To build the site with your committee-specific information, you will fill out tw
 Next to $committee-color, please replace the sample color with the hex code of your committee's color, which will be the accent color for the overall site.
 Next to $committee, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how you would like it to appear as the title of the site. (example: TeachLA, Teach LA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set!
 
-
 ## Development Setup
 
 We'll use a really common Node.js project workflow + Yarn!
