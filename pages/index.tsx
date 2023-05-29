@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next';
 import MainLayout from '../components/MainLayout';
 import getCommitteeInfo from '../scripts/landing-page-generator.mjs';
+import vars from '../styles/global_variables.module.scss';
 import styles from '../styles/landing.module.scss';
 
 interface Committee {
@@ -30,7 +31,7 @@ export default function Home({ committee }: Props): JSX.Element {
               <h1 className={styles.title}>
                 ACM&nbsp;
                 <span className={styles['committee-name']}>
-                  {committee.name}
+                  {vars.committee}
                 </span>
               </h1>
               <h2 className={styles.lead}>{committee.subtitle}</h2>
@@ -41,9 +42,9 @@ export default function Home({ committee }: Props): JSX.Element {
             </a>
           </div>
         </div>
-        <div className={styles['main-section']}>
+        {/* <div className={styles['main-section']}>
           <h1 className={styles.content}>INSERT CONTENT HERE</h1>
-        </div>
+        </div> */}
       </div>
     </MainLayout>
   );

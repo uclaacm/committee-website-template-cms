@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import vars from '../styles/global_variables.module.scss';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
@@ -17,7 +18,7 @@ export default function MainLayout(props: LayoutProps) {
           name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1"
         />
-        <title>Your Next Project!</title>
+        <title>ACM {vars.committee}</title>
         <link rel="icon" href="/logo.png" />
       </Head>
       <Navbar />
