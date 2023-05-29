@@ -13,7 +13,7 @@ interface Committee {
   dcLink: string;
   igLink: string;
   email: string;
-  color: string;
+  favicon: string;
 }
 
 interface Props {
@@ -51,7 +51,7 @@ export default function Home({ committee }: Props): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const committee = await getCommitteeInfo('Studio');
+  const committee = await getCommitteeInfo(vars.committee);
   return {
     props: {
       committee: committee,

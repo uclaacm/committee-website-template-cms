@@ -9,17 +9,6 @@ dotenv.config();
 const SPREADSHEET_ID = process.env.LANDING_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 
-// Week one MONDAY of the quarter (y, m (base 0), d)
-const FIRST_DAY_OF_QUARTER = new Date(2023, 0, 9);
-const DAYS_OF_WEEK = [
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
-  'saturday',
-  'sunday',
-];
 //Grab main information to be displayed
 //and write to output.json
 async function getCommitteeInfo(name) {
@@ -46,7 +35,7 @@ async function getCommitteeInfo(name) {
         dcLink: row[5],
         igLink: row[6],
         email: row[7],
-        color: row[8],
+        favicon: row[8],
       });
     } catch (err) {
       console.error(`Error ${err} on committee ${row}`);
