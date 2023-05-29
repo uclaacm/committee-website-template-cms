@@ -14,6 +14,7 @@ interface Committee {
   igLink: string;
   email: string;
   favicon: string;
+  backgroundImg: string;
 }
 
 interface Props {
@@ -25,7 +26,7 @@ export default function Home({ committee }: Props): JSX.Element {
   return (
     <MainLayout>
       <div>
-        <div className={styles.masthead}>
+        <div className={styles.masthead} style={{backgroundImage:  `url(${committee.backgroundImg})`}}>
           <div className={styles['masthead-text']}>
             <div className={styles.heading}>
               <h1 className={styles.title}>
@@ -42,9 +43,6 @@ export default function Home({ committee }: Props): JSX.Element {
             </a>
           </div>
         </div>
-        {/* <div className={styles['main-section']}>
-          <h1 className={styles.content}>INSERT CONTENT HERE</h1>
-        </div> */}
       </div>
     </MainLayout>
   );
