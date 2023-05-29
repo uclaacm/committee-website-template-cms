@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import {
   getCssStringFromCommittee,
-  generateSingleEvent,
   generateCommittee,
 } from './lib.mjs';
 
