@@ -5,6 +5,13 @@ const nextConfig = {
   eslint: {
     dirs: ['components', 'pages'],
   },
+  images: {
+    domains: [
+      'lh3.googleusercontent.com',
+      'drive.google.com',
+      'teachla.uclaacm.com'
+    ]
+  }
 };
 
 module.exports = nextConfig;

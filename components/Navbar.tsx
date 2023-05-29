@@ -20,7 +20,7 @@ export default function Navbar() {
       </div>
       <div className="navbar-items">
         <div className="navbar-link">
-          <Link href="/otherPage">Other Page</Link>
+          <Link href="/teamPage">Team</Link>
         </div>
         <div className="navbar-link">
           <Link href="/eventsPage">Events Page</Link>

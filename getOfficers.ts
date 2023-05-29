@@ -6,7 +6,7 @@ dotenv.config();
 const SPREADSHEET_ID = process.env.OFFICERS_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '{}';
 
-async function getOfficerData(): Promise<Map<string, Map<string, string>[]>>{
+export default async function getOfficerData(committeeName: string): Promise<object[]>{
     const sheets = google.sheets({version: 'v4'});
 
     // Get JWT Token to access sheet
@@ -47,9 +47,8 @@ async function getOfficerData(): Promise<Map<string, Map<string, string>[]>>{
         ['W', 'w']
     ]);
 
-
-    // Store officer data
-    const officerData = new Map<string, Map<string, string>[]>(); // map committees to list of officers
+    // // Store officer data
+    const officers: object[] = []; // list of officers in desired committee
 
     let currCommittee = '';
     let officerID = 1;
@@ -61,25 +60,29 @@ async function getOfficerData(): Promise<Map<string, Map<string, string>[]>>{
             currCommittee = committees.get(committee) ?? ''; // empty string means ACM Board
             return;
         }
-        if (!currCommittee) // skip all rows for ACM Board
+        if (currCommittee != committeeName) // skip all rows other than desired committee
             return;
 
-        const officer = new Map<string, string>([
-            ['id', officerID],
-            ['position', row[0]],
-            ['name', row[1]],
-            ['pronouns', row[2]],
-            ['email', row[3]],
-            ['github', row[9]],
-        ]);
-        if (officerData.has(currCommittee))
-            officerData.get(currCommittee)?.push(officer);
-        else
-            officerData.set(currCommittee, [officer]);
+        // push row data into officers list
+        let image = row[10];
+        if (!image) {
+            image = '/acm-logo-wordmark-extended.png';
+        }
+        else if (image.includes('drive.google.com')) {
+            const fileID = image.match(/\/file\/d\/(.+?)\//)[1];
+            image = `https://drive.google.com/uc?export=download&id=${fileID}`;
+        }
+        const officer = {
+            id: officerID,
+            position: row[0] ?? null,
+            name: row[1] ?? null,
+            pronouns: row[2] ?? null,
+            email: row[3] ?? null,
+            github: row[9] ?? null,
+            imageURL: image ?? null
+        };
+        officers.push(officer);
         officerID++;
     });
-
-    return officerData;
+    return officers;
 }
-
-export default getOfficerData;
