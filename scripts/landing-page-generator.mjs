@@ -2,10 +2,7 @@ import fs from 'fs';
 import { resolve } from 'path';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
-import {
-  getCssStringFromCommittee,
-  generateCommittee,
-} from './lib.mjs';
+import { getCssStringFromCommittee, generateCommittee } from './lib.mjs';
 
 // .env config
 dotenv.config();
