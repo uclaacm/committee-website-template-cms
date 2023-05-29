@@ -119,7 +119,7 @@ const generateCommittee = ({
   igLink,
   email,
   favicon,
-  backgroundImg
+  backgroundImg,
 }) => {
   if (!committee || !name) {
     throw new Error('Missing committee name');
@@ -142,7 +142,7 @@ const generateCommittee = ({
     igLink,
     email,
     favicon,
-    backgroundImg
+    backgroundImg,
   };
 };
 

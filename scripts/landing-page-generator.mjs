@@ -35,7 +35,7 @@ async function getCommitteeInfo(name) {
         igLink: row[6],
         email: row[7],
         favicon: row[8],
-        backgroundImg: row[9]
+        backgroundImg: row[9],
       });
     } catch (err) {
       console.error(`Error ${err} on committee ${row}`);

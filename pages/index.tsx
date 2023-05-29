@@ -26,7 +26,10 @@ export default function Home({ committee }: Props): JSX.Element {
   return (
     <MainLayout>
       <div>
-        <div className={styles.masthead} style={{backgroundImage:  `url(${committee.backgroundImg})`}}>
+        <div
+          className={styles.masthead}
+          style={{ backgroundImage: `url(${committee.backgroundImg})` }}
+        >
           <div className={styles['masthead-text']}>
             <div className={styles.heading}>
               <h1 className={styles.title}>
