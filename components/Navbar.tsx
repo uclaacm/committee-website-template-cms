@@ -28,12 +28,12 @@ export default function Navbar() {
             id={clicked ? styles.active : ''}
           >
             <li>
-              <Link href="/team">
+              <Link href="/teamPage">
                 <a>Team</a>
               </Link>
             </li>
             <li>
-              <Link href="/events">
+              <Link href="/eventsPage">
                 <a>Events</a>
               </Link>
             </li>
