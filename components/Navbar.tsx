@@ -22,7 +22,6 @@ export default function Navbar() {
             </a>
           </Link>
         </div>
-        
         <div>
           <ul
             className={styles['nav-item-list']}
