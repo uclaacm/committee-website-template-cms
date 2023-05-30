@@ -14,7 +14,7 @@ export default function Footer() {
         <section className={styles.footerlogo}>
           <Link href="/">
             <a>
-              <Image src={WordmarkLogo} width={180} height={70} alt="Logo" />
+              <Image src={WordmarkLogo} width={100} height={40} alt="Logo" />
             </a>
           </Link>
         </section>
@@ -26,8 +26,8 @@ export default function Footer() {
           >
             <Image
               src={instagram}
-              width={30}
-              height={30}
+              width={25}
+              height={25}
               alt="Instagram Icon"
             />
           </a>
@@ -38,7 +38,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <Image src={discord} width={35} height={30} alt="Discord Icon" />
+            <Image src={discord} width={30} height={25} alt="Discord Icon" />
           </a>
         </section>
         <section className={styles.footerlogo}>
@@ -48,7 +48,7 @@ export default function Footer() {
             rel="noreferrer"
             className={styles.mailanchor}
           >
-            <Image src={email} width={35} height={30} alt="Email Icon" />
+            <Image src={email} width={25} height={20} alt="Email Icon" />
           </a>
         </section>
       </section>

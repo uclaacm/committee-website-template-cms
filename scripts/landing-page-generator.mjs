@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { resolve } from 'path';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
@@ -9,21 +8,10 @@ dotenv.config();
 const SPREADSHEET_ID = process.env.LANDING_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 
-// Week one MONDAY of the quarter (y, m (base 0), d)
-const FIRST_DAY_OF_QUARTER = new Date(2023, 0, 9);
-const DAYS_OF_WEEK = [
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
-  'saturday',
-  'sunday',
-];
 //Grab main information to be displayed
 //and write to output.json
 async function getCommitteeInfo(name) {
-  const committees = await getGoogleSheetData('committee info!A:I');
+  const committees = await getGoogleSheetData('committee info!A:J');
   const committee = [];
   //get committee
   for (const row of committees) {
@@ -46,7 +34,8 @@ async function getCommitteeInfo(name) {
         dcLink: row[5],
         igLink: row[6],
         email: row[7],
-        color: row[8],
+        favicon: row[8],
+        backgroundImg: row[9],
       });
     } catch (err) {
       console.error(`Error ${err} on committee ${row}`);
@@ -97,17 +86,6 @@ async function getGoogleSheetData(range) {
   // return formatRows;
 
   return rows;
-}
-
-// write events (list of event jsons) to output.json
-function writeToOutput(events) {
-  // Write to output.json
-  const out = JSON.stringify(events);
-  fs.writeFile('output.json', out, (err) => {
-    if (err) throw err;
-    // eslint-disable-next-line no-console
-    console.log('Output successfully saved to output.json');
-  });
 }
 
 export default getCommitteeInfo;

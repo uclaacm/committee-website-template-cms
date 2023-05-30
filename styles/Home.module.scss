@@ -1,4 +1,4 @@
-@import "global_variables";
+@use "../styles/global_variables.module.scss" as vars;
 
 .container {
   padding: 0 2rem;
@@ -15,7 +15,7 @@
 }
 
 .title a {
-  color: $acm-blue;
+  color: vars.$acm-blue;
   text-decoration: none;
 }
 
@@ -72,8 +72,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: $acm-blue;
-  border-color: $acm-blue;
+  color: vars.$acm-blue;
+  border-color: vars.$acm-blue;
 }
 
 .card h2 {

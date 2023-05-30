@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next';
 import MainLayout from '../components/MainLayout';
 import getCommitteeInfo from '../scripts/landing-page-generator.mjs';
+import vars from '../styles/global_variables.module.scss';
 import styles from '../styles/landing.module.scss';
 
 interface Committee {
@@ -12,7 +13,8 @@ interface Committee {
   dcLink: string;
   igLink: string;
   email: string;
-  color: string;
+  favicon: string;
+  backgroundImg: string;
 }
 
 interface Props {
@@ -24,13 +26,16 @@ export default function Home({ committee }: Props): JSX.Element {
   return (
     <MainLayout>
       <div>
-        <div className={styles.masthead}>
+        <div
+          className={styles.masthead}
+          style={{ backgroundImage: `url(${committee.backgroundImg})` }}
+        >
           <div className={styles['masthead-text']}>
             <div className={styles.heading}>
               <h1 className={styles.title}>
                 ACM&nbsp;
                 <span className={styles['committee-name']}>
-                  {committee.name}
+                  {vars.committee}
                 </span>
               </h1>
               <h2 className={styles.lead}>{committee.subtitle}</h2>
@@ -41,16 +46,13 @@ export default function Home({ committee }: Props): JSX.Element {
             </a>
           </div>
         </div>
-        <div className={styles['main-section']}>
-          <h1 className={styles.content}>INSERT CONTENT HERE</h1>
-        </div>
       </div>
     </MainLayout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const committee = await getCommitteeInfo('Studio');
+  const committee = await getCommitteeInfo(vars.committee);
   return {
     props: {
       committee: committee,

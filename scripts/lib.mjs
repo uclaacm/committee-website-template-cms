@@ -7,8 +7,8 @@ const getCssStringFromCommittee = (committee) => {
     case 'external':
     case 'board':
       return 'board';
-    case 'teach la':
-      return 'teach-la';
+    case 'teachla' || 'teach la' || 'teach-la':
+      return 'teachla';
     case 'ai':
     case 'cyber':
     case 'design':
@@ -118,10 +118,18 @@ const generateCommittee = ({
   dcLink,
   igLink,
   email,
-  color,
+  favicon,
+  backgroundImg,
 }) => {
   if (!committee || !name) {
     throw new Error('Missing committee name');
+  }
+
+  if (!backgroundImg) {
+    backgroundImg = '/acm-logo-wordmark-extended.png';
+  } else if (backgroundImg.includes('drive.google.com')) {
+    const fileID = backgroundImg.match(/\/file\/d\/([^/]+)\/?/)[1];
+    backgroundImg = `https://drive.google.com/uc?export=download&id=${fileID}`;
   }
 
   return {
@@ -133,7 +141,8 @@ const generateCommittee = ({
     dcLink,
     igLink,
     email,
-    color,
+    favicon,
+    backgroundImg,
   };
 };
 
