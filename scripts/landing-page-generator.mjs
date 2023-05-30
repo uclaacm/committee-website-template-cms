@@ -2,6 +2,7 @@ import { resolve } from 'path';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import { getCssStringFromCommittee, generateCommittee } from './lib.mjs';
+import fs from 'fs';
 
 // .env config
 dotenv.config();
@@ -41,8 +42,30 @@ async function getCommitteeInfo(name) {
       console.error(`Error ${err} on committee ${row}`);
     }
   }
-
+  writeToOutput(committee);
   return committee;
+}
+/*
+// Grab all single and recurring events of Week n
+// and write to output.json
+async function writeCommitteeInfo(committee) {
+  // Get events
+  let events = (await getSingleEventsOfWeek(n)).concat(
+    await getRecurringEventsOfWeek(n),
+  );
+  const cleaned = events.filter((item) => item);
+  writeToOutput(cleaned);
+}*/
+
+// write committee info to output.json
+function writeToOutput(committee) {
+  // Write to output.json
+  const out = JSON.stringify(committee);
+  fs.writeFile('../public/output.json', out, (err) => {
+    if (err) throw err;
+    // eslint-disable-next-line no-console
+    console.log('Output successfully saved to output.json');
+  });
 }
 
 ////////////////////////////////////////////////////////
