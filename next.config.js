@@ -7,10 +7,10 @@ const nextConfig = {
   },
   images: {
     domains: [
+      'lh3.googleusercontent.com',
       'drive.google.com',
+      'teachla.uclaacm.com',
       'icpc.uclaacm.com',
-      'i.ibb.co',
-      'cdn.discordapp.com',
     ],
   },
 };

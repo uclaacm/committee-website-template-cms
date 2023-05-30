@@ -1,10 +1,42 @@
+import { GetStaticProps } from 'next';
 import React from 'react';
 import BoardCard from '../components/BoardCard';
 import MainLayout from '../components/MainLayout';
 import MemCard from '../components/MemCard';
+import getOfficerData from '../getOfficers';
 import styles from '../styles/Teampage.module.scss';
 
-export default function OtherPage() {
+interface Officer {
+  id: number,
+  position: string,
+  name: string,
+  pronouns: string,
+  email: string,
+  github: string,
+  imageURL: string
+}
+
+interface Props {
+  officers: Officer[]
+}
+
+export default function teamPage({ officers }: Props) {
+  const officerCards: React.ReactNode[] = [];
+  officers.forEach((officer, index) => {
+    officerCards.push(
+      <div className={styles.card} key={index}>
+        <BoardCard
+          imageURL = {officer.imageURL ?? ''}
+          name = {officer.name ?? ''}
+          pronouns = {officer.pronouns ?? ''}
+          position = {officer.position ?? ''}
+          github = {officer.github ?? ''}
+          email = {officer.email ?? ''}
+        />
+      </div>
+    );
+  });
+
   return (
     <MainLayout>
       <div className={styles.main}>
@@ -18,46 +50,7 @@ export default function OtherPage() {
           </p>
           <div className={styles.boardgrid}>
             {/* 2 per row */}
-            <div className={styles.card}>
-              <BoardCard
-                imageURL="/profile.png"
-                name="Name"
-                pronouns="pronouns"
-                position="position"
-                github="github"
-                email="email"
-              />
-            </div>
-            <div className={styles.card}>
-              <BoardCard
-                imageURL="/profile.png"
-                name="Name"
-                pronouns="pronouns"
-                position="position"
-                github="github"
-                email="email"
-              />
-            </div>
-            <div className={styles.card}>
-              <BoardCard
-                imageURL="/profile.png"
-                name="Name"
-                pronouns="pronouns"
-                position="position"
-                github="github"
-                email="email"
-              />
-            </div>
-            <div className={styles.card}>
-              <BoardCard
-                imageURL="/profile.png"
-                name="Name"
-                pronouns="pronouns"
-                position="position"
-                github="github"
-                email="email"
-              />
-            </div>
+            {officerCards}
           </div>
         </div>
 
@@ -112,3 +105,14 @@ export default function OtherPage() {
     </MainLayout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const officers = await getOfficerData('teachla');
+
+  return {
+    props: {
+      officers,
+    },
+    revalidate: 3600,
+  };
+};
