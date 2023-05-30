@@ -22,6 +22,7 @@ export default function Navbar() {
             </a>
           </Link>
         </div>
+        
         <div>
           <ul
             className={styles['nav-item-list']}
@@ -29,34 +30,12 @@ export default function Navbar() {
           >
             <li>
               <Link href="/team">
-                <a>team</a>
+                <a>Team</a>
               </Link>
             </li>
             <li>
               <Link href="/events">
-                <a>events</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <button>Join Us</button>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul
-            className={styles['nav-item-list']}
-            id={clicked ? styles.active : ''}
-          >
-            <li>
-              <Link href="/team">
-                <a>team</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/events">
-                <a>events</a>
+                <a>Events</a>
               </Link>
             </li>
             <li>
