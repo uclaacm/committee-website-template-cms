@@ -31,7 +31,7 @@ Thanks for using our template! We hope this makes your life developing significa
 Things you should do **after using this as a template**:
 
 - [ ] find-and-replace `YOUR_PROJECT_URL_HERE` with your GitHub repo's project name in this README (it's in a few places, so use an editor!)
-- [ ] add to the Overview section above with any desired information about what your website is for
+- [ ] add to the Overview section above with any desired information about what your website is for.
 - [ ] set up [Netlify](https://www.netlify.com/) for this app - talk to the current dev team director: matt (`@matthewcn56`) if you need access to the ACM UCLA Netlify team.
 - [ ] turn on "Automatically delete head branches" in GitHub `Settings > Options`
 - [ ] in `Settings > Branches`, create a branch protection rule for `main` that requires PR reviews. Also require status checks, like passing `build`.
@@ -50,7 +50,14 @@ Thanks for using our template for your committee's website!
 To build the site with your committee-specific information, you will fill out two fields in the global_variables.module.scss file, which can be found in the styles folder. (full path: ./styles/global_variables.module.scss)
 
 Next to $committee-color, please replace the sample color with the hex code of your committee's color, which will be the accent color for the overall site.
-Next to $committee, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how you would like it to appear as the title of the site. (example: TeachLA, Teach LA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set!
+Next to $committee, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how it appears on the Committee Info spreadsheet. (example: TeachLA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set! Please contact Elizabeth Kim (`@elizabethkim11`) if you would like your committee's name to be reflected differently than how it appears on the spreadsheet.
+
+## Spreadsheet Image Guidelines
+
+- All image links should be sharable google drive links, with access permissions set to "Anyone with the link."
+- All images should be .png, .jpeg, .jpg files.
+- All headshots must be square cropped.
+- Contact Elizabeth Kim (`@elizabethkim11`) to properly modify your design assets to suit the template's home page.
 
 ## Development Setup
 
