@@ -33,3 +33,6 @@ jobs:
           EVENTS_SPREADSHEET_ID: ${{ secrets.EVENTS_SPREADSHEET_ID }}
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
           CI: true
+          EVENTS_SPREADSHEET_ID: ${{secrets.EVENTS_SPREADSHEET_ID }}
+          DIRECTORY_SPREADSHEET_ID: ${{secrets.DIRECTORY_SPREADSHEET_ID }}
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}

@@ -1,4 +1,4 @@
-@import "global_variables";
+@use "../styles/global_variables.module.scss" as vars;
 
 .masthead {
   background-image: url("../public/Illustration.png");
@@ -28,7 +28,7 @@
 }
 
 .committee-name {
-  color: $committee-color;
+  color: vars.$committee-color;
 }
 
 .lead {
@@ -46,9 +46,9 @@
 }
 
 .cta-btn {
-  color: $committee-color;
+  color: vars.$committee-color;
   background-color: transparent;
-  border: 2px solid $committee-color;
+  border: 2px solid vars.$committee-color;
   padding: 0.5rem 2.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -61,7 +61,7 @@
   cursor: pointer;
   text-decoration: none;
   color: #fff;
-  background-color: $committee-color;
+  background-color: vars.$committee-color;
   transform: scale(1.05);
   opacity: 0.9;
 }

@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import MainLayout from '../components/MainLayout';
+import vars from '../styles/global_variables.module.scss';
 import styles from '../styles/landing.module.scss';
 
 const Home: NextPage = () => {
@@ -11,7 +12,9 @@ const Home: NextPage = () => {
             <div className={styles.heading}>
               <h1 className={styles.title}>
                 ACM&nbsp;
-                <span className={styles['committee-name']}>Teach LA</span>
+                <span className={styles['committee-name']}>
+                  {vars.committee}
+                </span>
               </h1>
               <h2 className={styles.lead}>making coding accessible</h2>
             </div>
