@@ -44,13 +44,12 @@ async function getComponentInfo(name) {
       console.error(`Error ${err} on committee ${row}`);
     }
   }
-  
-    // Write committee data to JSON file
-    fs.writeFile('output.json', JSON.stringify(committee), (err) => {
-      if (err) throw err;
-      console.log('Output successfully saved to output.json');
-    });
-  
+
+  // Write committee data to JSON file
+  fs.writeFile('output.json', JSON.stringify(committee), (err) => {
+    if (err) throw err;
+    console.log('Output successfully saved to output.json');
+  });
 
   return committee;
 }
@@ -98,7 +97,7 @@ async function getGoogleSheetData(range) {
   return rows;
 }
 
-getComponentInfo("ICPC")
+getComponentInfo('ICPC')
   .then((committee) => {
     // Process the committee data or perform any other actions
     console.log(committee);
