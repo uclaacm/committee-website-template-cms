@@ -27,7 +27,7 @@ const Footer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('./public/output.json');
+        const response = await fetch('/output.json');
         const jsonData = await response.json();
         setCommitteeData(jsonData);
       } catch (error) {
