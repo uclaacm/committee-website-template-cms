@@ -40,50 +40,50 @@ const Navbar = () => {
   return (
     <div>
       {committeeData && (
-      <nav className={styles.navbar}>
-        <div className="navbar-brand">
-          <Link href="/">
-            <a className="force-child-display-block">
-              <Image
-                src={committeeData[0].logoLink}
-                width={106}
-                height={40}
-                alt="Open Source at ACM Home"
-              />
-            </a>
-          </Link>
-        </div>
-        <div>
-          <ul
-            className={styles['nav-item-list']}
-            id={clicked ? styles.active : ''}
-          >
-            <li>
-              <Link href="/teamPage">
-                <a>Team</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/eventsPage">
-                <a>Events</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <button>Join Us</button>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div id={styles['small-screen']}>
-          <i onClick={() => setClicked(!clicked)}>
-            {clicked ? <FaTimes /> : <FaBars />}
-          </i>
-        </div>
-      </nav>
+        <nav className={styles.navbar}>
+          <div className="navbar-brand">
+            <Link href="/">
+              <a className="force-child-display-block">
+                <Image
+                  src={committeeData[0].logoLink}
+                  width={106}
+                  height={40}
+                  alt="Open Source at ACM Home"
+                />
+              </a>
+            </Link>
+          </div>
+          <div>
+            <ul
+              className={styles['nav-item-list']}
+              id={clicked ? styles.active : ''}
+            >
+              <li>
+                <Link href="/teamPage">
+                  <a>Team</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/eventsPage">
+                  <a>Events</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/">
+                  <button>Join Us</button>
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div id={styles['small-screen']}>
+            <i onClick={() => setClicked(!clicked)}>
+              {clicked ? <FaTimes /> : <FaBars />}
+            </i>
+          </div>
+        </nav>
       )}
     </div>
   );
-}
+};
 
 export default Navbar;
