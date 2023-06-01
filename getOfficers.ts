@@ -76,7 +76,7 @@ export default async function getOfficerData(
       const fileID = image.match(/\/file\/d\/(.+?)\//)[1];
       image = `https://drive.google.com/uc?export=download&id=${fileID}`;
     }
-    
+
     // create officer
     const officer = {
       id: officerID,
