@@ -1,31 +1,55 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
+import { FaTimes, FaBars } from 'react-icons/fa';
 import WordmarkLogo from '../public/acm-logo-wordmark-extended.png';
+import styles from '../styles/Navbar.module.scss';
 
 export default function Navbar() {
+  const [clicked, setClicked] = useState(false);
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <Link href="/">
-          <a className="force-child-display-block">
-            <Image
-              src={WordmarkLogo}
-              width={106}
-              height={40}
-              alt="Open Source at ACM Home"
-            />
-          </a>
-        </Link>
-      </div>
-      <div className="navbar-items">
-        <div className="navbar-link">
-          <Link href="/teamPage">Other Page</Link>
+    <div>
+      <nav className={styles.navbar}>
+        <div className="navbar-brand">
+          <Link href="/">
+            <a className="force-child-display-block">
+              <Image
+                src={WordmarkLogo}
+                width={106}
+                height={40}
+                alt="Open Source at ACM Home"
+              />
+            </a>
+          </Link>
         </div>
-        <div className="navbar-link">
-          <Link href="/eventsPage">Events Page</Link>
+        <div>
+          <ul
+            className={styles['nav-item-list']}
+            id={clicked ? styles.active : ''}
+          >
+            <li>
+              <Link href="/teamPage">
+                <a>Team</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/eventsPage">
+                <a>Events</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <button>Join Us</button>
+              </Link>
+            </li>
+          </ul>
         </div>
-      </div>
-    </nav>
+        <div id={styles['small-screen']}>
+          <i onClick={() => setClicked(!clicked)}>
+            {clicked ? <FaTimes /> : <FaBars />}
+          </i>
+        </div>
+      </nav>
+    </div>
   );
 }
