@@ -1,7 +1,9 @@
 import { resolve } from 'path';
+import fs from 'fs';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import { getCssStringFromCommittee, generateCommittee } from './lib.mjs';
+// import vars from '../styles/global_variables.module.scss';
 
 // .env config
 dotenv.config();
@@ -10,7 +12,7 @@ const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 
 //Grab main information to be displayed
 //and write to output.json
-async function getCommitteeInfo(name) {
+async function getComponentInfo(name) {
   const committees = await getGoogleSheetData('committee info!A:J');
   const committee = [];
   //get committee
@@ -25,7 +27,11 @@ async function getCommitteeInfo(name) {
       continue;
     }
     try {
-      return generateCommittee({
+      if (row[4].includes('drive.google.com')) {
+        const fileID = row[4].match(/\/file\/d\/([^/]+)\/?/)[1];
+        row[4] = `https://drive.google.com/uc?export=download&id=${fileID}`;
+      }
+      const committeeData = generateCommittee({
         committee: row[0],
         name: row[1],
         subtitle: row[2],
@@ -37,10 +43,17 @@ async function getCommitteeInfo(name) {
         favicon: row[8],
         backgroundImg: row[9],
       });
+      committee.push(committeeData);
     } catch (err) {
       console.error(`Error ${err} on committee ${row}`);
     }
   }
+
+  // Write committee data to JSON file
+  fs.writeFile('output.json', JSON.stringify(committee), (err) => {
+    if (err) throw err;
+    console.log('Output successfully saved to output.json');
+  });
 
   return committee;
 }
@@ -88,4 +101,13 @@ async function getGoogleSheetData(range) {
   return rows;
 }
 
-export default getCommitteeInfo;
+getComponentInfo('ICPC')
+  .then((committee) => {
+    // Process the committee data or perform any other actions
+    console.log(committee);
+  })
+  .catch((error) => {
+    console.error('Error generating component info:', error);
+  });
+
+export default getComponentInfo;

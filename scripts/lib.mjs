@@ -108,6 +108,44 @@ const generateSingleEvent = ({
   };
 };
 
+const generateCommittee = ({
+  // final keys
+  committee,
+  name,
+  subtitle,
+  description,
+  logoLink,
+  dcLink,
+  igLink,
+  email,
+  favicon,
+  backgroundImg,
+}) => {
+  if (!committee || !name) {
+    throw new Error('Missing committee name');
+  }
+
+  if (!backgroundImg) {
+    backgroundImg = '/acm-logo-wordmark-extended.png';
+  } else if (backgroundImg.includes('drive.google.com')) {
+    const fileID = backgroundImg.match(/\/file\/d\/([^/]+)\/?/)[1];
+    backgroundImg = `https://drive.google.com/uc?export=download&id=${fileID}`;
+  }
+
+  return {
+    committee,
+    name,
+    subtitle,
+    description,
+    logoLink,
+    dcLink,
+    igLink,
+    email,
+    favicon,
+    backgroundImg,
+  };
+};
+
 const generateDateRange = (startDate, endDate) => {
   let currentDate = startDate;
   const dates = [];
@@ -118,4 +156,9 @@ const generateDateRange = (startDate, endDate) => {
   return dates;
 };
 
-export { getCssStringFromCommittee, generateSingleEvent, generateDateRange };
+export {
+  getCssStringFromCommittee,
+  generateSingleEvent,
+  generateDateRange,
+  generateCommittee,
+};
