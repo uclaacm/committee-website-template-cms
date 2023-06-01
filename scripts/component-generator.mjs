@@ -6,7 +6,7 @@ import { getCssStringFromCommittee, generateCommittee } from './lib.mjs';
 // import vars from '../styles/global_variables.module.scss';
 
 // .env config
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 const SPREADSHEET_ID = process.env.LANDING_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 
@@ -50,7 +50,7 @@ async function getComponentInfo(name) {
   }
 
   // Write committee data to JSON file
-  fs.writeFile('output.json', JSON.stringify(committee), (err) => {
+  fs.writeFile('./public/output.json', JSON.stringify(committee), (err) => {
     if (err) throw err;
     console.log('Output successfully saved to output.json');
   });

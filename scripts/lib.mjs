@@ -132,6 +132,13 @@ const generateCommittee = ({
     backgroundImg = `https://drive.google.com/uc?export=download&id=${fileID}`;
   }
 
+  if (!logoLink) {
+    logoLink = '/acm-logo-wordmark-extended.png';
+  } else if (logoLink.includes('drive.google.com')) {
+    const fileID = logoLink.match(/\/file\/d\/(.+?)\//)[1];
+    logoLink = `https://drive.google.com/uc?export=download&id=${fileID}`;
+  }
+
   return {
     committee,
     name,

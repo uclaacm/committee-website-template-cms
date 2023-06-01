@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import discord from '../public/discord.png';
+import email from '../public/email.png';
 import instagram from '../public/instagram.png';
 import styles from '../styles/Footer.module.scss';
 
@@ -33,7 +34,6 @@ const Footer = () => {
         console.error('error');
       }
     };
-
     //eslint-disable-next-line
     fetchData();
   }, []);
@@ -79,17 +79,12 @@ const Footer = () => {
           </section>
           <section className={styles.footerlogo}>
             <a
-              href="mailto:acm@ucla.edu"
+              href={`mailto:${committeeData[0].email}`}
               target="_blank"
               rel="noreferrer"
               className={styles.mailanchor}
             >
-              <Image
-                src={committeeData[0].favicon}
-                width={25}
-                height={20}
-                alt="Email Icon"
-              />
+              <Image src={email} width={25} height={20} alt="Email Icon" />
             </a>
           </section>
         </section>

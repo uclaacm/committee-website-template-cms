@@ -40,7 +40,7 @@ Things you should do **after using this as a template**:
 - [ ] update the README badges for the GitHub Actions and Netlify with the correct links!
 - [ ] update and delete this documentation!
 - [ ] update `public/index.html` to have a description and title
-- [ ] update `public/favicon.svg` and `public/favaicon512.png` as needed
+- [ ] update `public/favicon.svg` as needed
 - [ ] contact Regina Wang (`@reginawang99`), Matthew Nieva (`@matthewcn56`), Matthew Wang (`@mattxwang`)or Jiin Kim (`@doubleiis02`) with any questions about our quickstarter template set-up.
 
 ## Loading in Committee Info (can also delete this section when done)
