@@ -76,12 +76,7 @@ const Footer = () => {
               rel="noreferrer"
               className={styles.mailanchor}
             >
-              <Image
-                src={email}
-                width={25}
-                height={20}
-                alt="Email Icon"
-              />
+              <Image src={email} width={25} height={20} alt="Email Icon" />
             </a>
           </section>
         </section>
