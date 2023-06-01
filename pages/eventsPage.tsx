@@ -40,7 +40,6 @@ interface Event {
 
 interface Props {
   events: Event[];
-  committee: string;
 }
 
 export default function Events({ events }: Props): JSX.Element {

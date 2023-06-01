@@ -27,6 +27,10 @@ async function getComponentInfo(name) {
       continue;
     }
     try {
+      if (row[4].includes('drive.google.com')) {
+        const fileID = row[4].match(/\/file\/d\/([^/]+)\/?/)[1];
+        row[4] = `https://drive.google.com/uc?export=download&id=${fileID}`;
+      }
       const committeeData = generateCommittee({
         committee: row[0],
         name: row[1],

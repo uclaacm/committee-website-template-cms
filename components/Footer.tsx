@@ -55,7 +55,11 @@ const Footer = () => {
             </Link>
           </section>
           <section className={styles.footerlogo}>
-            <a href={committeeData[0].igLink} target="_blank" rel="noreferrer">
+            <a
+              href={`https://${committeeData[0].igLink}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               <Image
                 src={instagram}
                 width={25}
@@ -65,7 +69,11 @@ const Footer = () => {
             </a>
           </section>
           <section className={styles.footerlogo}>
-            <a href={committeeData[0].dcLink} target="_blank" rel="noreferrer">
+            <a
+              href={`https://${committeeData[0].dcLink}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               <Image src={discord} width={30} height={25} alt="Discord Icon" />
             </a>
           </section>
