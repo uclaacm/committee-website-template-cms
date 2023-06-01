@@ -43,12 +43,6 @@ var googleapis_1 = require("googleapis");
 dotenv.config();
 var SPREADSHEET_ID = process.env.OFFICERS_SPREADSHEET_ID;
 var SERVICE_ACCOUNT = (_a = process.env.SERVICE_ACCOUNT) !== null && _a !== void 0 ? _a : '{}';
-// interface Committee {
-//     officers: Officer[]
-// }
-// interface OfficerData {
-//     committees: Committee[]
-// }
 function getOfficerData(committeeName) {
     return __awaiter(this, void 0, void 0, function () {
         var sheets, service_account, jwtClient, res, rows, committees, officers, currCommittee, officerID;
@@ -82,31 +76,26 @@ function getOfficerData(committeeName) {
                         ['Hack', 'hack'],
                         ['ICPC', 'icpc'],
                         ['Teach LA', 'teachla'],
-                        ['W', 'w']
+                        ['W', 'w'],
                     ]);
                     officers = [];
                     currCommittee = '';
                     officerID = 1;
                     rows.forEach(function (row) {
                         var _a, _b, _c, _d, _e, _f;
-                        if (row.length == 0) // empty row
+                        if (row.length == 0)
+                            // empty row
                             return;
-                        if (row.length == 1) { // row with only committee name
+                        if (row.length == 1) {
+                            // row with only committee name
                             var committee = row[0];
                             currCommittee = (_a = committees.get(committee)) !== null && _a !== void 0 ? _a : ''; // empty string means ACM Board
                             return;
                         }
-                        if (currCommittee != committeeName) // skip all rows other than desired committee
+                        if (currCommittee != committeeName)
+                            // skip all rows other than desired committee
                             return;
-                        // const officer = new Map<string, string>([
-                        //     ['id', officerID],
-                        //     ['position', row[0]],
-                        //     ['name', row[1]],
-                        //     ['pronouns', row[2]],
-                        //     ['email', row[3]],
-                        //     ['github', row[9]],
-                        //     ['imageURL', row[10]]
-                        // ]);
+                        // push row data into officers list
                         var image = row[10];
                         if (!image) {
                             image = '/acm-logo-wordmark-extended.png';
@@ -115,6 +104,7 @@ function getOfficerData(committeeName) {
                             var fileID = image.match(/\/file\/d\/(.+?)\//)[1];
                             image = "https://drive.google.com/uc?export=download&id=".concat(fileID);
                         }
+                        // create officer
                         var officer = {
                             id: officerID,
                             position: (_b = row[0]) !== null && _b !== void 0 ? _b : null,
@@ -133,4 +123,3 @@ function getOfficerData(committeeName) {
     });
 }
 exports["default"] = getOfficerData;
-getOfficerData("teachla").then(function (res) { return console.log(res[14]); });
