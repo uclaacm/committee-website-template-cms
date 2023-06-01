@@ -11,6 +11,8 @@ const nextConfig = {
       'drive.google.com',
       'teachla.uclaacm.com',
       'icpc.uclaacm.com',
+      'cdn.discordapp.com',
+      'i.ibb.co',
     ],
   },
 };
