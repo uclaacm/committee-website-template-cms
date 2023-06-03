@@ -55,7 +55,7 @@ Next to $committee, please replace the sample text with your committee's name, s
 ## Spreadsheet Image Guidelines
 
 - All image links should be sharable google drive links, with access permissions set to "Anyone with the link."
-- All images should be .png, .jpeg, .jpg files.
+- All images should be .png or .jpg files.
 - All headshots must be square cropped.
 - Contact Elizabeth Kim (`@elizabethkim11`) to properly modify your design assets to suit the template's home page.
 
