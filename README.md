@@ -52,6 +52,8 @@ To build the site with your committee-specific information, you will fill out tw
 Next to $committee-color, please replace the sample color with the hex code of your committee's color, which will be the accent color for the overall site.
 Next to $committee, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how it appears on the Committee Info spreadsheet. (example: TeachLA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set! Please contact Elizabeth Kim (`@elizabethkim11`) if you would like your committee's name to be reflected differently than how it appears on the spreadsheet.
 
+You will also fill out another field for your committee name in the global-variables.js file, which is located in the scripts folder. (full path: ./scripts/global-variables.js) Replace the sample committee name in the string on line 1 with your committee's name. Please follow the same guidelines as above for the committee name input.
+
 ## Spreadsheet Image Guidelines
 
 - All image links should be sharable google drive links, with access permissions set to "Anyone with the link."
