@@ -186,7 +186,7 @@ function getOfficerData(committeeName) {
             ['AI', 'ai'],
             ['Cyber', 'cyber'],
             ['Design', 'design'],
-            ['Game Studio', 'studio'],
+            ['Studio', 'studio'],
             ['Hack', 'hack'],
             ['ICPC', 'icpc'],
             ['Teach LA', 'teachla'],
@@ -200,7 +200,8 @@ function getOfficerData(committeeName) {
             if (row.length == 0)
               // empty row
               return;
-            if (row.length == 1) {
+            if (committees.has(row[0])) {
+              console.log(`\n\n\n${row[0]}\n\n\n`)
               // row with only committee name
               var committee = row[0];
               currCommittee =
