@@ -16,6 +16,7 @@ async function getComponentInfo(name) {
   const committees = await getGoogleSheetData('committee info!A:J');
   const committee = [];
   //get committee
+  // console.log(committees);
   for (const row of committees) {
     //Skip header rows and example
     if (
@@ -27,10 +28,15 @@ async function getComponentInfo(name) {
       continue;
     }
     try {
-      if (row[4].includes('drive.google.com')) {
-        const fileID = row[4].match(/\/file\/d\/([^/]+)\/?/)[1];
-        row[4] = `https://drive.google.com/uc?export=download&id=${fileID}`;
-      }
+      // if (row[4] && row[4].includes('drive.google.com')) {
+      //   const match = row[4].match(/\/file\/d\/([^/]+)\/?/);
+      //   if (match) {
+      //     const fileID = match[1];
+      //     row[4] = `https://drive.google.com/uc?export=download&id=${fileID}`;
+      //   } else {
+      //     console.error(`Invalid Google Drive link format: ${row[4]}`);
+      //   }
+      // }
       const committeeData = generateCommittee({
         committee: row[0],
         name: row[1],
@@ -101,7 +107,7 @@ async function getGoogleSheetData(range) {
   return rows;
 }
 
-getComponentInfo('ICPC')
+getComponentInfo('TeachLA')
   .then((committee) => {
     // Process the committee data or perform any other actions
     console.log(committee);

@@ -23,7 +23,8 @@
     "react-big-calendar": "^1.6.9",
     "react-dom": "18.2.0",
     "react-icons": "^4.9.0",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "sharp": "^0.32.4"
   },
   "devDependencies": {
     "@types/node": "18.6.2",
