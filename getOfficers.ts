@@ -8,7 +8,6 @@ const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '{}';
 export default async function getOfficerData(
   committeeName: string,
 ): Promise<object[]> {
-
   const sheets = google.sheets({ version: 'v4' });
   // Get JWT Token to access sheet
   const service_account = JSON.parse(SERVICE_ACCOUNT);
@@ -85,8 +84,3 @@ export default async function getOfficerData(
   });
   return officers;
 }
-
-
-
-
-

@@ -201,7 +201,7 @@ function getOfficerData(committeeName) {
               // empty row
               return;
             if (committees.has(row[0])) {
-              console.log(`\n\n\n${row[0]}\n\n\n`)
+              console.log(`\n\n\n${row[0]}\n\n\n`);
               // row with only committee name
               var committee = row[0];
               currCommittee =
