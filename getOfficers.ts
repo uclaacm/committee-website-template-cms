@@ -82,6 +82,6 @@ export default async function getOfficerData(
     officers.push(officer);
     officerID++;
   });
-  
+
   return officers;
 }
