@@ -38,7 +38,7 @@ export default async function getOfficerData(
     ['AI', 'ai'],
     ['Cyber', 'cyber'],
     ['Design', 'design'],
-    ['Game Studio', 'studio'],
+    ['Studio', 'studio'],
     ['Hack', 'hack'],
     ['ICPC', 'icpc'],
     ['Teach LA', 'teachla'],
@@ -82,5 +82,6 @@ export default async function getOfficerData(
     officers.push(officer);
     officerID++;
   });
+  
   return officers;
 }
