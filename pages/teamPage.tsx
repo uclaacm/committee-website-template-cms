@@ -3,8 +3,8 @@ import React from 'react';
 import BoardCard from '../components/BoardCard';
 import MainLayout from '../components/MainLayout';
 import getOfficerData from '../getOfficers';
-import styles from '../styles/Teampage.module.scss';
 import vars from '../styles/global_variables.module.scss';
+import styles from '../styles/Teampage.module.scss';
 
 interface Officer {
   id: number;
