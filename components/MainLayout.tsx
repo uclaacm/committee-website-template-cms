@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
+import vars from '../styles/global_variables.module.scss';
 import Footer from './Footer';
 import Navbar from './Navbar';
-import vars from '../styles/global_variables.module.scss';
 
 interface LayoutProps {
   children: JSX.Element;
