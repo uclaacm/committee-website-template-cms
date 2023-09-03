@@ -6,7 +6,7 @@ import { getCssStringFromCommittee, generateCommittee } from './lib.mjs';
 // import vars from '../styles/global_variables.module.scss';
 
 // .env config
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 const SPREADSHEET_ID = process.env.LANDING_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 

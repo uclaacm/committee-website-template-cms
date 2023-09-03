@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import { google } from 'googleapis';
 
 // .env config
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 const SPREADSHEET_ID = process.env.DIRECTORY_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '{}';
 export default async function getOfficerData(
