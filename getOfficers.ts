@@ -64,7 +64,7 @@ export default async function getOfficerData(
     // push row data into officers list
     let image = row[10];
     if (!image) {
-      image = '/acm-logo-wordmark-extended.png';
+      image = '/profile.png';
     } else if (image.includes('drive.google.com')) {
       const fileID = image.match(/\/file\/d\/(.+?)\//)[1];
       image = `https://drive.google.com/uc?export=download&id=${fileID}`;

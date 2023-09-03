@@ -1,6 +1,7 @@
-@use "../styles/global_variables.module.scss" as vars;
+$committee-color: #5eda12;
 
 .masthead {
+  background-image: url("../public/Illustration.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -27,7 +28,7 @@
 }
 
 .committee-name {
-  color: vars.$committee-color;
+  color: $committee-color;
 }
 
 .lead {
@@ -45,9 +46,9 @@
 }
 
 .cta-btn {
-  color: vars.$committee-color;
+  color: $committee-color;
   background-color: transparent;
-  border: 2px solid vars.$committee-color;
+  border: 2px solid $committee-color;
   padding: 0.5rem 2.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -60,7 +61,7 @@
   cursor: pointer;
   text-decoration: none;
   color: #fff;
-  background-color: vars.$committee-color;
+  background-color: $committee-color;
   transform: scale(1.05);
   opacity: 0.9;
 }

@@ -12,16 +12,8 @@ interface Officer {
   email: string;
   github: string;
   imageURL: string;
-  id: number;
-  position: string;
-  name: string;
-  pronouns: string;
-  email: string;
-  github: string;
-  imageURL: string;
 }
 interface Props {
-  officers: Officer[];
   officers: Officer[];
 }
 export default function teamPage({ officers }: Props) {
@@ -36,14 +28,7 @@ export default function teamPage({ officers }: Props) {
           position={officer.position ?? ''}
           github={officer.github ?? ''}
           email={officer.email ?? ''}
-          imageURL={officer.imageURL ?? ''}
-          name={officer.name ?? ''}
-          pronouns={officer.pronouns ?? ''}
-          position={officer.position ?? ''}
-          github={officer.github ?? ''}
-          email={officer.email ?? ''}
         />
-      </div>,
       </div>,
     );
   });
@@ -67,7 +52,7 @@ export default function teamPage({ officers }: Props) {
   );
 }
 export const getStaticProps: GetStaticProps = async () => {
-  const officers = await getOfficerData('studio');
+  const officers = await getOfficerData('teachla');
   return {
     props: {
       officers,
