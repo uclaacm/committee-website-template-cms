@@ -52,8 +52,7 @@ export default function Events({ events }: Props): JSX.Element {
   const committee = vars.committee.toLowerCase();
 
   const filteredEvents = indexedEvents.filter(
-    (event) =>
-      event.committee === committee,
+    (event) => event.committee === committee,
   );
 
   if (committee === 'board') {
