@@ -5,12 +5,10 @@ import { google } from 'googleapis';
 dotenv.config();
 const SPREADSHEET_ID = process.env.DIRECTORY_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '{}';
-
 export default async function getOfficerData(
   committeeName: string,
 ): Promise<object[]> {
   const sheets = google.sheets({ version: 'v4' });
-
   // Get JWT Token to access sheet
   const service_account = JSON.parse(SERVICE_ACCOUNT);
   const jwtClient = new google.auth.JWT(
@@ -24,7 +22,6 @@ export default async function getOfficerData(
       throw err;
     }
   });
-
   // Get officer data from google spreadsheets
   const res = await sheets.spreadsheets.values.get({
     auth: jwtClient,
@@ -35,30 +32,27 @@ export default async function getOfficerData(
   if (!rows || rows.length == 0) {
     throw new Error('Error: no data found');
   }
-
   // Map committee names in the spreadsheet to more concise names
   // Ignore board as it's not a committee
   const committees = new Map<string, string>([
     ['AI', 'ai'],
     ['Cyber', 'cyber'],
     ['Design', 'design'],
-    ['Game Studio', 'studio'],
+    ['Studio', 'studio'],
     ['Hack', 'hack'],
     ['ICPC', 'icpc'],
     ['Teach LA', 'teachla'],
     ['W', 'w'],
   ]);
-
   // // Store officer data
   const officers: object[] = []; // list of officers in desired committee
-
   let currCommittee = '';
   let officerID = 1;
   rows.forEach((row) => {
     if (row.length == 0)
       // empty row
       return;
-    if (row.length == 1) {
+    if (committees.has(row[0])) {
       // row with only committee name
       const committee = row[0];
       currCommittee = committees.get(committee) ?? ''; // empty string means ACM Board
@@ -67,15 +61,15 @@ export default async function getOfficerData(
     if (currCommittee != committeeName)
       // skip all rows other than desired committee
       return;
-
     // push row data into officers list
     let image = row[10];
     if (!image) {
-      image = '/profile.png';
+      image = '/acm-logo-wordmark-extended.png';
     } else if (image.includes('drive.google.com')) {
       const fileID = image.match(/\/file\/d\/(.+?)\//)[1];
       image = `https://drive.google.com/uc?export=download&id=${fileID}`;
     }
+    // create officer
     const officer = {
       id: officerID,
       position: row[0] ?? null,
@@ -85,9 +79,9 @@ export default async function getOfficerData(
       github: row[9] ?? null,
       imageURL: image ?? null,
     };
-    // console.log(officer);
     officers.push(officer);
     officerID++;
   });
+
   return officers;
 }
