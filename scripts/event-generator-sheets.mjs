@@ -5,7 +5,7 @@ import { google } from 'googleapis';
 import { getCssStringFromCommittee, generateSingleEvent } from './lib.mjs';
 
 // .env config
-dotenv.config({ path: '.env.local' });
+dotenv.config();
 const SPREADSHEET_ID = process.env.EVENTS_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 

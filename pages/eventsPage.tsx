@@ -40,6 +40,7 @@ interface Event {
 
 interface Props {
   events: Event[];
+  committee: string;
 }
 
 export default function Events({ events }: Props): JSX.Element {
@@ -52,7 +53,7 @@ export default function Events({ events }: Props): JSX.Element {
 
   const filteredEvents = indexedEvents.filter(
     (event) =>
-      event.committee === committee && event.start > Date.now().toString(),
+      event.committee === committee,
   );
 
   if (committee === 'board') {
