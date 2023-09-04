@@ -2,8 +2,8 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import BoardCard from '../components/BoardCard';
 import MainLayout from '../components/MainLayout';
-import MemCard from '../components/MemCard';
 import getOfficerData from '../getOfficers';
+import vars from '../styles/global_variables.module.scss';
 import styles from '../styles/Teampage.module.scss';
 
 interface Officer {
@@ -15,11 +15,9 @@ interface Officer {
   github: string;
   imageURL: string;
 }
-
 interface Props {
   officers: Officer[];
 }
-
 export default function teamPage({ officers }: Props) {
   const officerCards: React.ReactNode[] = [];
   officers.forEach((officer, index) => {
@@ -36,12 +34,10 @@ export default function teamPage({ officers }: Props) {
       </div>,
     );
   });
-
   return (
     <MainLayout>
       <div className={styles.main}>
         <h1 className={styles.title}>Team</h1>
-
         <div>
           <h2 className={styles.subtitle}>Board</h2>
           <p className={styles.description}>
@@ -53,62 +49,13 @@ export default function teamPage({ officers }: Props) {
             {officerCards}
           </div>
         </div>
-
-        <div>
-          <h2 className={styles.subtitle}>General Members</h2>
-          {/* <p className={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p> */}
-          <div className={styles.gmgrid}>
-            {/* 3 per row */}
-            <div className={styles.card}>
-              <MemCard
-                imageURL="/profile.png"
-                name="Name"
-                position="position"
-              />
-            </div>
-            <div className={styles.card}>
-              <MemCard
-                imageURL="/profile.png"
-                name="Name"
-                position="position"
-              />
-            </div>
-            <div className={styles.card}>
-              <MemCard
-                imageURL="/profile.png"
-                name="Name"
-                position="position"
-              />
-            </div>
-            <div className={styles.card}>
-              <MemCard
-                imageURL="/profile.png"
-                name="Name"
-                position="position"
-              />
-            </div>
-            <div className={styles.card}>
-              <MemCard
-                imageURL="/profile.png"
-                name="Name"
-                position="position"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </MainLayout>
   );
 }
-
 export const getStaticProps: GetStaticProps = async () => {
-  const officers = await getOfficerData('teachla');
-
+  const committee = vars.committee.toLowerCase();
+  const officers = await getOfficerData(committee);
   return {
     props: {
       officers,

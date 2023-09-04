@@ -16,6 +16,7 @@ async function getComponentInfo(name) {
   const committees = await getGoogleSheetData('committee info!A:J');
   const committee = [];
   //get committee
+  // console.log(committees);
   for (const row of committees) {
     //Skip header rows and example
     if (
