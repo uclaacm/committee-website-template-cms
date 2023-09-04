@@ -1,7 +1,9 @@
 import { resolve } from 'path';
+import fs from 'fs';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import { getCssStringFromCommittee, generateCommittee } from './lib.mjs';
+import { committee } from './global-variables.js';
 
 // .env config
 dotenv.config({ path: '.env.local' });
@@ -10,10 +12,11 @@ const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 
 //Grab main information to be displayed
 //and write to output.json
-async function getCommitteeInfo(name) {
+async function getComponentInfo(name) {
   const committees = await getGoogleSheetData('committee info!A:J');
   const committee = [];
   //get committee
+  // console.log(committees);
   for (const row of committees) {
     //Skip header rows and example
     if (
@@ -25,7 +28,7 @@ async function getCommitteeInfo(name) {
       continue;
     }
     try {
-      return generateCommittee({
+      const committeeData = generateCommittee({
         committee: row[0],
         name: row[1],
         subtitle: row[2],
@@ -37,10 +40,17 @@ async function getCommitteeInfo(name) {
         favicon: row[8],
         backgroundImg: row[9],
       });
+      committee.push(committeeData);
     } catch (err) {
       console.error(`Error ${err} on committee ${row}`);
     }
   }
+
+  // Write committee data to JSON file
+  fs.writeFile('./public/output.json', JSON.stringify(committee), (err) => {
+    if (err) throw err;
+    console.log('Output successfully saved to output.json');
+  });
 
   return committee;
 }
@@ -55,6 +65,7 @@ async function getGoogleSheetData(range) {
   const sheets = google.sheets({ version: 'v4' });
 
   // Get JWT Token to access sheet
+  // console.log(SERVICE_ACCOUNT);
   const service_account = JSON.parse(SERVICE_ACCOUNT);
   const jwtClient = new google.auth.JWT(
     service_account.client_email,
@@ -87,4 +98,13 @@ async function getGoogleSheetData(range) {
   return rows;
 }
 
-export default getCommitteeInfo;
+getComponentInfo(committee)
+  .then((committee) => {
+    // Process the committee data or perform any other actions
+    console.log(committee);
+  })
+  .catch((error) => {
+    console.error('Error generating component info:', error);
+  });
+
+export default getComponentInfo;

@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import MainLayout from '../components/MainLayout';
 import getCommitteeInfo from '../scripts/landing-page-generator.mjs';
 import vars from '../styles/global_variables.module.scss';
-import styles from '../styles/landing.module.scss';
+import styles from '../styles/LandingPage.module.scss';
 
 interface Committee {
   committee: string;

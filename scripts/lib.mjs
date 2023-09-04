@@ -88,7 +88,7 @@ const generateSingleEvent = ({
   }
 
   if (!banner) {
-    banner = '/acm-logo-wordmark-extended.png';
+    banner = '/favicon.svg';
   } else if (banner.includes('drive.google.com')) {
     const fileID = banner.match(/\/file\/d\/(.+?)\//)[1];
     banner = `https://drive.google.com/uc?export=download&id=${fileID}`;
@@ -130,6 +130,13 @@ const generateCommittee = ({
   } else if (backgroundImg.includes('drive.google.com')) {
     const fileID = backgroundImg.match(/\/file\/d\/([^/]+)\/?/)[1];
     backgroundImg = `https://drive.google.com/uc?export=download&id=${fileID}`;
+  }
+
+  if (!logoLink) {
+    logoLink = '/acm-logo-wordmark-extended.png';
+  } else if (logoLink.includes('drive.google.com')) {
+    const fileID = logoLink.match(/\/file\/d\/(.+?)\//)[1];
+    logoLink = `https://drive.google.com/uc?export=download&id=${fileID}`;
   }
 
   return {
