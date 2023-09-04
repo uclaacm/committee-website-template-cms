@@ -32,7 +32,7 @@ Things you should do **after using this as a template**:
 
 - [ ] find-and-replace `YOUR_PROJECT_URL_HERE` with your GitHub repo's project name in this README (it's in a few places, so use an editor!)
 - [ ] add to the Overview section above with any desired information about what your website is for.
-- [ ] set up [Netlify](https://www.netlify.com/) for this app - talk to the current dev team director: matt (`@matthewcn56`) if you need access to the ACM UCLA Netlify team.
+- [ ] set up [Netlify](https://www.netlify.com/) for this app - talk to the current dev team director: arsh (`@ArshMalik02`) if you need access to the ACM UCLA Netlify team.
 - [ ] turn on "Automatically delete head branches" in GitHub `Settings > Options`
 - [ ] in `Settings > Branches`, create a branch protection rule for `main` that requires PR reviews. Also require status checks, like passing `build`.
 - [ ] _only_ enable squash merging in Github `Settings > Options > Merge Button` (and disable merge commits and rebase merging).
