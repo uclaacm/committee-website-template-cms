@@ -1,13 +1,35 @@
-import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import MainLayout from '../components/MainLayout';
+import getCommitteeInfo from '../scripts/landing-page-generator.mjs';
 import vars from '../styles/global_variables.module.scss';
-import styles from '../styles/landing.module.scss';
+import styles from '../styles/LandingPage.module.scss';
 
-const Home: NextPage = () => {
+interface Committee {
+  committee: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  logoLink: string;
+  dcLink: string;
+  igLink: string;
+  email: string;
+  favicon: string;
+  backgroundImg: string;
+}
+
+interface Props {
+  committee: Committee;
+  idName: string;
+}
+
+export default function Home({ committee }: Props): JSX.Element {
   return (
     <MainLayout>
       <div>
-        <div className={styles.masthead}>
+        <div
+          className={styles.masthead}
+          style={{ backgroundImage: `url(${committee.backgroundImg})` }}
+        >
           <div className={styles['masthead-text']}>
             <div className={styles.heading}>
               <h1 className={styles.title}>
@@ -16,25 +38,25 @@ const Home: NextPage = () => {
                   {vars.committee}
                 </span>
               </h1>
-              <h2 className={styles.lead}>making coding accessible</h2>
+              <h2 className={styles.lead}>{committee.subtitle}</h2>
             </div>
-            <p className={styles.description}>
-              ACM Teach LA pairs UCLA students with schools in Los Angeles to
-              provide free computer science classes. Our goal is to empower all
-              students with the ability to code, and use it to make a
-              difference.
-            </p>
+            <p className={styles.description}>{committee.description}</p>
             <a className={styles['cta-btn']} href="#">
               Join Us
             </a>
           </div>
         </div>
-        {/* <div className={styles['main-section']}>
-          <h1 className={styles.content}>INSERT CONTENT HERE</h1>
-        </div> */}
       </div>
     </MainLayout>
   );
-};
+}
 
-export default Home;
+export const getStaticProps: GetStaticProps = async () => {
+  const committee = await getCommitteeInfo(vars.committee);
+  return {
+    props: {
+      committee: committee,
+    },
+    revalidate: 3600,
+  };
+};

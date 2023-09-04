@@ -5,7 +5,7 @@ import { google } from 'googleapis';
 import { getCssStringFromCommittee, generateSingleEvent } from './lib.mjs';
 
 // .env config
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 const SPREADSHEET_ID = process.env.EVENTS_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
 
@@ -152,7 +152,6 @@ async function getGoogleSheetData(range) {
   const sheets = google.sheets({ version: 'v4' });
 
   // Get JWT Token to access sheet
-  console.log(SERVICE_ACCOUNT);
   const service_account = JSON.parse(SERVICE_ACCOUNT);
   const jwtClient = new google.auth.JWT(
     service_account.client_email,
