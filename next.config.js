@@ -9,7 +9,7 @@ const nextConfig = {
     domains: [
       'lh3.googleusercontent.com',
       'drive.google.com',
-      'teachla.uclaacm.com',
+      'teachla.uclaacm.com'
     ],
   },
 };

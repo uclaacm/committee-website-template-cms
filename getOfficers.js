@@ -69,6 +69,8 @@ function getOfficerData(committeeName) {
                         throw new Error('Error: no data found');
                     }
                     committees = new Map([
+                        ['Board, Internal', 'boardInternal'],
+                        ['Board, External', 'boardExternal'],
                         ['AI', 'ai'],
                         ['Cyber', 'cyber'],
                         ['Design', 'design'],
@@ -89,7 +91,7 @@ function getOfficerData(committeeName) {
                         if (committees.has(row[0])) {
                             // row with only committee name
                             var committee = row[0];
-                            currCommittee = (_a = committees.get(committee)) !== null && _a !== void 0 ? _a : ''; // empty string means ACM Board
+                            currCommittee = (_a = committees.get(committee)) !== null && _a !== void 0 ? _a : '';
                             return;
                         }
                         if (currCommittee != committeeName)
