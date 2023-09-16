@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import vars from '../styles/global_variables.module.scss';
 
 interface LayoutProps {
   children: JSX.Element;
@@ -17,8 +18,8 @@ export default function MainLayout(props: LayoutProps) {
           name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1"
         />
-        <title>Your Next Project!</title>
-        <link rel="icon" href="/logo.png" />
+        <title>ACM {vars.committee}</title>
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <Navbar />
       <main>{props.children}</main>

@@ -30,4 +30,8 @@ jobs:
 
       - run: yarn build
         env:
+          EVENTS_SPREADSHEET_ID: ${{ secrets.EVENTS_SPREADSHEET_ID }}
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
           CI: true
+          DIRECTORY_SPREADSHEET_ID: ${{secrets.DIRECTORY_SPREADSHEET_ID }}
+          LANDING_SPREADSHEET_ID: ${{secrets.LANDING_SPREADSHEET_ID }}

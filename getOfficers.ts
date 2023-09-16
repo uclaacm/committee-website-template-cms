@@ -2,9 +2,10 @@ import * as dotenv from 'dotenv';
 import { google } from 'googleapis';
 
 // .env config
-dotenv.config();
-const SPREADSHEET_ID = process.env.OFFICERS_SPREADSHEET_ID;
+dotenv.config({ path: '.env.local' });
+const SPREADSHEET_ID = process.env.DIRECTORY_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '{}';
+
 export default async function getOfficerData(
   committeeName: string,
 ): Promise<object[]> {
@@ -35,8 +36,8 @@ export default async function getOfficerData(
   // Map committee names in the spreadsheet to more concise names
   // Ignore board as it's not a committee
   const committees = new Map<string, string>([
-    ['Board, Internal', 'boardInternal'],
-    ['Board, External', 'boardExternal'],
+    ['Board, Internal', 'board'],
+    ['Board, External', 'board'],
     ['AI', 'ai'],
     ['Cyber', 'cyber'],
     ['Design', 'design'],
@@ -66,7 +67,7 @@ export default async function getOfficerData(
     // push row data into officers list
     let image = row[10];
     if (!image) {
-      image = '/acm-logo-wordmark-extended.png';
+      image = '/profile.png';
     } else if (image.includes('drive.google.com')) {
       const fileID = image.match(/\/file\/d\/(.+?)\//)[1];
       image = `https://drive.google.com/uc?export=download&id=${fileID}`;

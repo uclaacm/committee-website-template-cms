@@ -1,3 +1,5 @@
+@use "../styles/global_variables.module.scss" as vars;
+
 .container {
   display: inline-block;
   position: relative;
@@ -17,18 +19,29 @@
 }
 
 .header {
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 2em;
 }
 
 .body {
+  display: flex;
+  gap: 4rem;
   overflow-wrap: break-word;
+  font-size: 0.9rem;
 }
 
 .time {
-  color: #39ff14;
+  color: vars.$committee-color;
   font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1rem;
   display: flex;
   margin-top: 15px;
+}
+
+@media (max-width: 1175px) {
+  .body {
+    display: inline;
+  }
 }

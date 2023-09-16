@@ -6,17 +6,19 @@ interface CardInterface {
   header: string;
   body: string;
   time: string;
+  img: string;
 }
-function EventCard({ header, body, time }: CardInterface) {
+function EventCard({ header, body, time, img }: CardInterface) {
   return (
     <div className={styles.container}>
       <div className={styles.text}>
         <div className={styles.header}>{header}</div>
-        <div className={styles.body}>{body}</div>
+        <div className={styles.body}>
+          <div style={{ flex: '1' }}>{body}</div>
+          <Image src={img} width={300} height={300} />
+        </div>
         <div className={styles.time}>
-          <div>
-            <Image src="/icons8-calendar-24.png" width={20} height={20} />
-          </div>
+          <Image src="/icons8-calendar-24.png" width={20} height={20} />
           <div>&nbsp;{time}</div>
         </div>
       </div>
