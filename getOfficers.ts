@@ -5,6 +5,7 @@ import { google } from 'googleapis';
 dotenv.config({ path: '.env.local' });
 const SPREADSHEET_ID = process.env.DIRECTORY_SPREADSHEET_ID;
 const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '{}';
+
 export default async function getOfficerData(
   committeeName: string,
 ): Promise<object[]> {
@@ -35,6 +36,8 @@ export default async function getOfficerData(
   // Map committee names in the spreadsheet to more concise names
   // Ignore board as it's not a committee
   const committees = new Map<string, string>([
+    ['Board, Internal', 'board'],
+    ['Board, External', 'board'],
     ['AI', 'ai'],
     ['Cyber', 'cyber'],
     ['Design', 'design'],
@@ -55,7 +58,7 @@ export default async function getOfficerData(
     if (committees.has(row[0])) {
       // row with only committee name
       const committee = row[0];
-      currCommittee = committees.get(committee) ?? ''; // empty string means ACM Board
+      currCommittee = committees.get(committee) ?? '';
       return;
     }
     if (currCommittee != committeeName)
