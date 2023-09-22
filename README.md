@@ -41,23 +41,23 @@ Things you should do **after using this as a template**:
 - [ ] update and delete this documentation!
 - [ ] update `public/index.html` to have a description and title
 - [ ] update `public/favicon.svg` as needed
-- [ ] contact Regina Wang (`@reginawang99`), Matthew Nieva (`@matthewcn56`), Matthew Wang (`@mattxwang`)or Jiin Kim (`@doubleiis02`) with any questions about our quickstarter template set-up.
 
 ## Loading in Committee Info (can also delete this section when done)
 
 Thanks for using our template for your committee's website!
 
-To build the site with your committee-specific information, you will fill out two fields in the global_variables.module.scss file, which can be found in the styles folder. (full path: ./styles/global_variables.module.scss)
+To build the site with your committee-specific information, you will fill out two fields in the `global_variables.module.scss` file, which can be found in the styles folder. (full path: `./styles/global_variables.module.scss`)
 
-Next to $committee-color, please replace the sample color with the hex code of your committee's color, which will be the accent color for the overall site.
-Next to $committee, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how it appears on the Committee Info spreadsheet. (example: TeachLA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set! Please contact Elizabeth Kim (`@elizabethkim11`) if you would like your committee's name to be reflected differently than how it appears on the spreadsheet.
+Next to `$committee-color`, please replace the sample color with the hex code of your committee's color, which will be the accent color for the overall site.
 
-You will also fill out another field for your committee name in the global-variables.js file, which is located in the scripts folder. (full path: ./scripts/global-variables.js) Replace the sample committee name in the string on line 1 with your committee's name. Please follow the same guidelines as above for the committee name input.
+Next to `$committee`, please replace the sample text with your committee's name, spelled and capitalized properly, exactly how it appears on the Committee Info spreadsheet. (example: TeachLA, ICPC, W are all valid. teach la, Icpc, w are invalid.) We will be using this to properly scrape your committee's information, so it is super important that this variable is correctly set! Please contact Elizabeth Kim (`@elizabethkim11`) if you would like your committee's name to be reflected differently than how it appears on the spreadsheet.
+
+You will also fill out another field for your committee name in the `global-variables.js` file, which is located in the scripts folder. (full path: `./scripts/global-variables.js`) Replace the sample committee name in the string on line 1 with your committee's name. Please follow the same guidelines as above for the committee name input.
 
 ## Spreadsheet Image Guidelines
 
 - All image links should be sharable google drive links, with access permissions set to "Anyone with the link."
-- All images should be .png or .jpg files.
+- All images should be `.png` or `.jpg` files.
 - All headshots must be square cropped.
 - Contact Elizabeth Kim (`@elizabethkim11`) to properly modify your design assets to suit the template's home page.
 
@@ -83,6 +83,10 @@ At this point you can run `nvm install`. Assuming you've already `cd`ed into the
 
 If you're on Windows, you can use NVM for Windows, a separate version manager whose installation instructions can be found [here](https://github.com/coreybutler/nvm-windows#installation--upgrades). Once you've done that, you can run `nvm install 16.13.2` to install the LTS version of Node.js, and `nvm use 16.13.2` to switch to it.
 
+---
+
+Once you have the correct Node version in use, check that you have yarn installed by running `yarn --version`.
+
 If you don't have yarn installed...
 
 ```
@@ -99,16 +103,14 @@ yarn prepare
 (If the above commands don't work even after installing yarn via npm, check this [npm installation guide](https://classic.yarnpkg.com/en/docs/install/#mac-stable), click on alternatives, choose your operating system, and follow the steps there!)
 
 (We handle the yarn and npm conflict issues within our `.gitignore` we set up so dw about it!)
-To start our app, you just need to run `yarn start`!
 
-```
-yarn start
-```
+To start our app in development mode, run `yarn dev`!
 
-And to build our project for production (with CRA and Webpack's bundling with all that goodness),
+To build our project for production (with CRA and Webpack's bundling with all that goodness), run
 
 ```
 yarn run build
+yarn start
 ```
 
 ## Contribution Workflow
