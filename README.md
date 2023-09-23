@@ -106,8 +106,6 @@ yarn prepare
 
 Once you have the dependencies installed, create a `.env.local` file in the root directory similar to the `.env.example` file. This will be used to store any environment variables that you want to keep secret. Please contact the dev team director `@ArshMalik02` or one of the lead devs `@elizabethkim11` for the correct environment variables to use.
 
-```
-
 To start our app in development mode, run `yarn dev`!
 
 To build our project for production (with CRA and Webpack's bundling with all that goodness), run
