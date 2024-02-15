@@ -70,8 +70,9 @@ export default async function getOfficerData(
       image = '/profile.png';
     } else if (image.includes('drive.google.com')) {
       const fileID = image.match(/\/file\/d\/(.+?)\//)[1];
-      image = `https://drive.google.com/uc?export=download&id=${fileID}`;
+      image = `https://drive.google.com/thumbnail?id=${fileID}&sz=s1000`;
     }
+
     // create officer
     const officer = {
       id: officerID,
