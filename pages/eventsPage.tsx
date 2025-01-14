@@ -47,6 +47,16 @@ export default function Events({ events }: Props): JSX.Element {
     );
   });
 
+  const uniqueEvents = Array.from(
+    // filters out identical events, ignoring "id" field
+    new Map(
+      filteredEvents.map((event) => [
+        JSON.stringify({ ...event, id: undefined }),
+        event,
+      ]),
+    ).values(),
+  );
+
   return (
     <MainLayout>
       <div className={styles.main}>
@@ -59,7 +69,7 @@ export default function Events({ events }: Props): JSX.Element {
               <h4 className={styles.message}>Stay tuned for more events!</h4>
             </div>
           )}
-          {filteredEvents.map((event, index) => {
+          {uniqueEvents.map((event, index) => {
             const start = format(new Date(event.start), 'h:mma');
             const end = format(new Date(event.end), 'h:mma');
             const startDate = format(new Date(event.start), 'E MMM d');
